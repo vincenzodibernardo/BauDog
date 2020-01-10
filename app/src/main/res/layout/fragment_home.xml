@@ -7,17 +7,44 @@
                                              tools:context=".HomeFragment">
     <ImageView
             android:src="@drawable/logo"
-            android:layout_width="382dp"
-            android:layout_height="333dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:id="@+id/Logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline2" app:layout_constraintStart_toStartOf="parent"
-            android:contentDescription="TODO"/>
+            android:contentDescription="@string/Null" android:scaleType="centerInside"
+            android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+    />
+    <android.support.constraint.Guideline
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/guideline"
+            app:layout_constraintGuide_percent="0.75"/>
     <android.support.constraint.Guideline
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/guideline2"
             app:layout_constraintGuide_percent="0.5"/>
+    <Button
+            android:text="Ho trovato un cane"
+            style="@style/homeStyle"
+            android:background="@drawable/bottone_home1"
+            android:layout_width="0dp"
+            android:layout_height="76dp"
+            android:id="@+id/Bottone_Ritrovamento"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"/>
+    <Button
+            android:text="Ho smarrito un cane"
+            style="@style/homeStyle"
+            android:background="@drawable/bottone_home1"
+            android:layout_width="0dp"
+            android:layout_height="76dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/Bottone_Smarrimento"
+            app:layout_constraintTop_toTopOf="@+id/guideline"/>
 </android.support.constraint.ConstraintLayout>

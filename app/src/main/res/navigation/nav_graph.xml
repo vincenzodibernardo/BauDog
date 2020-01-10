@@ -5,5 +5,12 @@
             app:startDestination="@id/homeFragment">
 
     <fragment android:id="@+id/homeFragment" android:name="com.example.baudog.HomeFragment"
-              android:label="fragment_home" tools:layout="@layout/fragment_home"/>
+              android:label="fragment_home" tools:layout="@layout/fragment_home">
+        <action android:id="@+id/action_homeFragment_to_smarritoFragment" app:destination="@id/smarritoFragment"/>
+        <action android:id="@+id/action_homeFragment_to_trovatoFragment" app:destination="@id/trovatoFragment"/>
+    </fragment>
+    <fragment android:id="@+id/smarritoFragment" android:name="com.example.baudog.SmarritoFragment"
+              android:label="fragment_smarrito" tools:layout="@layout/fragment_smarrito"/>
+    <fragment android:id="@+id/trovatoFragment" android:name="com.example.baudog.TrovatoFragment"
+              android:label="fragment_trovato" tools:layout="@layout/fragment_trovato"/>
 </navigation>

@@ -8,4 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+        <style name="homeStyle">
+            <item name="android:textColor">#FFFFFF</item>
+            <item name="android:textSize">15sp</item>
+            <item name="android:textStyle">bold</item>
+            <item name="android:paddingLeft">15dp</item>
+            <item name="android:fontFamily">@font/chalkduster</item>
+        </style>
 </resources>
