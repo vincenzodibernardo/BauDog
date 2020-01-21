@@ -4,4 +4,46 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Null">null</string>
+    <string name="stringa_bottone_trovato">Ho trovato un cane</string>
+    <string name="stringa_bottone_smarrimento">Ho smarrito un cane</string>
+    <string name="hint_Razza">Inserisci qui la razza...</string>
+    <string name="TextView_Razza">Razza :</string>
+    <string name="info_dog">INFO DOG</string>
+    <string name="maschio">M</string>
+    <string name="femmina">F</string>
+    <string name="TextView_colore">Colore :</string>
+    <string name="hint_Colore">Inserisci qui il colore...</string>
+    <string name="hint_ColoreCollare">Colore collare...</string>
+    <string name="TextView_Collare">Collare :</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
+    <string name="hint_InfoAggiuntive">\t-Il cane si presenta ferito,\n\t-Il cane si mostra aggressivo,\n\t-Il cane ha delle particolarità,</string>
+    <string name="textView_chip">Chip :</string>
+    <string name="TextView_sesso">Sesso :</string>
+    <string name="aggiungi_foto">+ Aggiungi Foto</string>
+    <string name="textView_InfoAggiuntive">Info aggiuntive :</string>
+    <string name="hint_NomeCollare">Nome sul collare...</string>
+
+
+    <string-array name="razze">
+        <item>Pitbull</item>
+        <item>Carlino</item>
+        <item>Pastore Tedesco</item>
+        <item>Chihuahua</item>
+        <item>Barboncino</item>
+        <item>Jack Russell Terrier</item>
+        <item>Bearded Collie</item>
+        <item>Border Collie</item>
+        <item>Border Terrier</item>
+        <item>Boxer</item>
+        <item>Bull Terrier</item>
+        <item>Bullmastiff</item>
+        <item>Bassotto</item>
+        <item>Alano</item>
+        <item>Maltese</item>
+        <item>Beagle</item>
+    </string-array>
+
+
+
 </resources>

@@ -27,7 +27,7 @@
             android:layout_height="wrap_content" android:id="@+id/guideline2"
             app:layout_constraintGuide_percent="0.5"/>
     <Button
-            android:text="Ho trovato un cane"
+            android:text="@string/stringa_bottone_trovato"
             style="@style/homeStyle"
             android:background="@drawable/bottone_home1"
             android:layout_width="0dp"
@@ -38,7 +38,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline2"
             app:layout_constraintBottom_toTopOf="@+id/guideline"/>
     <Button
-            android:text="Ho smarrito un cane"
+            android:text="@string/stringa_bottone_smarrimento"
             style="@style/homeStyle"
             android:background="@drawable/bottone_home1"
             android:layout_width="0dp"

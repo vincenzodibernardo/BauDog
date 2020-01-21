@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "56797111426",
+    "firebase_url": "https://prova-81382.firebaseio.com",
+    "project_id": "prova-81382",
+    "storage_bucket": "prova-81382.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56797111426:android:de4974b297f8d7b435009b",
+        "android_client_info": {
+          "package_name": "com.example.baudog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56797111426-j5on0nsvjk3si9eb3vuauf9eajgai2v4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.baudog",
+            "certificate_hash": "5d87fe0ac0a5498cf5f6585097f005ace346472a"
+          }
+        },
+        {
+          "client_id": "56797111426-v8b2vred3pdhbbnglsmf1t4cp6ha7hnn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiAZgR2DrPVYYOSTenAs-xaw4yvWx_F1w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56797111426-v8b2vred3pdhbbnglsmf1t4cp6ha7hnn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
