@@ -99,12 +99,12 @@
                 android:layout_marginEnd="8dp"
                 android:ems="10"
                 android:hint="@string/hint_Colore"
+                android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:textSize="24sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView_Colore"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline3"
-                android:importantForAutofill="no" />
+                app:layout_constraintStart_toStartOf="@+id/guideline3" />
 
         <EditText
                 android:id="@+id/editText_ColoreCollare"
@@ -113,17 +113,17 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="8dp"
-                android:visibility="visible"
                 android:ems="10"
                 android:gravity="clip_horizontal|center_horizontal"
                 android:hint="@string/hint_ColoreCollare"
+                android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:singleLine="true"
                 android:textSize="24sp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline3"
-                app:layout_constraintTop_toBottomOf="@+id/RadioGroup_Collare"
-                android:importantForAutofill="no" />
+                app:layout_constraintTop_toBottomOf="@+id/RadioGroup_Collare" />
 
         <android.support.constraint.Guideline
                 android:id="@+id/guideline3"
@@ -180,18 +180,16 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
                 android:background="@drawable/back"
                 android:ems="10"
                 android:gravity="top"
                 android:hint="@string/hint_InfoAggiuntive"
+                android:importantForAutofill="no"
                 android:inputType="textMultiLine"
                 android:textSize="24sp"
-                app:layout_constraintBottom_toTopOf="@+id/space"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_InfoAggiuntive"
-                android:importantForAutofill="no" />
+                app:layout_constraintTop_toBottomOf="@+id/textView_InfoAggiuntive" />
 
         <EditText
                 android:id="@+id/editText_NomeCollare"
@@ -200,16 +198,16 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="8dp"
-                android:visibility="visible"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="@string/hint_NomeCollare"
+                android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:textSize="24sp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline3"
-                app:layout_constraintTop_toBottomOf="@+id/editText_ColoreCollare"
-                android:importantForAutofill="no" />
+                app:layout_constraintTop_toBottomOf="@+id/editText_ColoreCollare" />
 
         <TextView
                 android:id="@+id/textView_InfoAggiuntive"
@@ -227,22 +225,31 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
 
+                android:layout_marginTop="10dp"
                 android:background="@drawable/buttonshape"
                 android:text="@string/aggiungi_foto"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editText_InfoAggiuntive" />
 
-        <Space
-                android:id="@+id/space"
-                android:layout_width="14dp"
-                android:layout_height="205dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                tools:layout_editor_absoluteX="294dp" />
+
+        <Button
+                android:id="@+id/Bottone_CaricaFoto"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/buttonshape"
+                android:text="Carica foto"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Bottone_AggiungiFoto" />
 
         <RadioGroup
                 android:id="@+id/RadioGroup_Chip"
@@ -305,11 +312,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="50dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
                 android:text="Save"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/button_Annulla"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Bottone_AggiungiFoto" />
+                app:layout_constraintTop_toBottomOf="@+id/ImmagineCane" />
 
         <Button
                 android:id="@+id/button_Annulla"
@@ -321,6 +329,20 @@
                 app:layout_constraintBaseline_toBaselineOf="@+id/button_Salva"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/button_Salva" />
+
+        <ImageView
+                android:id="@+id/ImmagineCane"
+                android:layout_width="346dp"
+                android:layout_height="399dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/button_Annulla"
+                app:layout_constraintDimensionRatio="2.2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Bottone_CaricaFoto"
+                tools:srcCompat="@tools:sample/avatars[0]" />
 
 
     </android.support.constraint.ConstraintLayout>
