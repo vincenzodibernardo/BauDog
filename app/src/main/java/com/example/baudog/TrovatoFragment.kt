@@ -9,18 +9,23 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v4.app.Fragment
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.*
+import android.view.*
+import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.navigation.Navigation
+import com.facebook.login.LoginManager
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import kotlinx.android.synthetic.main.fragment_registration.*
 import kotlinx.android.synthetic.main.fragment_trovato.*
 import java.util.*
 
 class TrovatoFragment : Fragment() {
+
+    private var GoogleSignInClient : GoogleSignInClient? = null
 
     private var chipValue: Boolean = true           // IL CANE HA IL CHIP ?
     private var collareValue: Boolean = true        // IL CANE HA IL COLLARE ?
@@ -28,11 +33,15 @@ class TrovatoFragment : Fragment() {
 
 
 
-    private var firebaseStorage: FirebaseStorage? = null
-    private var storageReference: StorageReference? = null
+    private var firebaseStorage: FirebaseStorage? = null        //VARIABILE PER FIREBASE
+    private var storageReference: StorageReference? = null      //VARIABILE PER FIREBASE
+    private var selectedPhotoUri : Uri?=null                    //VARIABILE PER FIREBASE
 
-    private var selectedPhotoUri : Uri?=null
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        this.setHasOptionsMenu(true)                            //MENU 3 PALLINE
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -48,7 +57,7 @@ class TrovatoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        // Serve a far mostrare la lista delle razze dei cani
+        // Serve a far mostrare la lista delle razze dei cani in Multiline text
         val res: Resources = resources
         val Razze = res.getStringArray(R.array.razze)
         val adapter = ArrayAdapter(context!!, simple_list_item_1, Razze)
@@ -250,11 +259,111 @@ class TrovatoFragment : Fragment() {
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater?)
+    {
+        Log.d("MENUOPT","ENTRO IN OnCreateOptionMenu")
+        inflater!!.inflate(R.menu.main_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean
+    {
 
 
+        //get item id to handle item clicks
+        val id = item!!.itemId
+        //handle item clicks
+        if (id == R.id.Logout_Item)
+        {
+            logout()
+            Navigation.findNavController(view!!).navigateUp()
+
+        }
+        if (id == R.id.Profilo_Item)
+        {
+            //do your action here, im just showing toast
+            Toast.makeText(context, "PROFILO", Toast.LENGTH_SHORT).show()
+
+        }
+
+        if (id == R.id.Login_Item)
+        {
+            //do your action here, im just showing toast
+            Toast.makeText(context, "LOGIN ", Toast.LENGTH_SHORT).show()
+            textView_Login.visibility = View.VISIBLE
+            textView_SignIn.visibility=View.GONE
+
+            button_LoginUserPassword.visibility=View.VISIBLE
+            button_LoginFacebook.visibility=View.VISIBLE
+            button_LoginGoogle.visibility=View.VISIBLE
+
+            button_Google.visibility=View.GONE
+            button_Facebook.visibility=View.GONE
+            button_submit.visibility=View.GONE
+        }
+
+        if (id == R.id.SignIn_Item)
+        {
+            //do your action here, im just showing toast
+            Toast.makeText(context, "SIGN IN", Toast.LENGTH_SHORT).show()
+            textView_Login.visibility = View.GONE
+            textView_SignIn.visibility=View.VISIBLE
+
+            button_LoginUserPassword.visibility=View.GONE
+            button_LoginFacebook.visibility=View.GONE
+            button_LoginGoogle.visibility=View.GONE
+
+            button_Google.visibility=View.VISIBLE
+            button_Facebook.visibility=View.VISIBLE
+            button_submit.visibility=View.VISIBLE
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu?) {
+        super.onPrepareOptionsMenu(menu)
+
+        val currentUser = FirebaseAuth.getInstance().currentUser
+
+        if (currentUser!=null)
+        {
+            menu!!.findItem(R.id.Login_Item).isVisible=false
+            menu.findItem(R.id.SignIn_Item).isVisible=false
+            menu.findItem(R.id.Profilo_Item).isVisible=true
+            menu.findItem(R.id.Logout_Item).isVisible=true
 
 
+        }
 
+        else
+        {
+            menu!!.findItem(R.id.Login_Item).isVisible=true
+            menu.findItem(R.id.SignIn_Item).isVisible=true
+            menu.findItem(R.id.Profilo_Item).isVisible=false
+            menu.findItem(R.id.Logout_Item).isVisible=false
+        }
+
+
+    }
+
+
+    private fun logout()
+    {
+        //LOGOUT SIMPLE
+        FirebaseAuth.getInstance().signOut()
+
+
+        //LOGOUT GOOGLE
+        GoogleSignInClient?.signOut()
+
+        //LOGOUT FACEBOOK
+        LoginManager.getInstance().logOut()
+
+
+        Toast.makeText(context, "LOGOUT", Toast.LENGTH_SHORT).show()
+    }
 
 }
 

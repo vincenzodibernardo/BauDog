@@ -45,5 +45,7 @@
     </string-array>
 
 
+    <string name="facebook_app_id">1555946397886172</string>
+    <string name="fb_login_protocol_scheme">fb1555946397886172</string>
 
 </resources>

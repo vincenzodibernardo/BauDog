@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
@@ -23,7 +24,14 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Bottone_Smarrimento.setOnClickListener { Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_smarritoFragment) }
-        Bottone_Ritrovamento.setOnClickListener { Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_trovatoFragment) }
+
+        Bottone_Ritrovamento.setOnClickListener {
+            val currentUser = FirebaseAuth.getInstance().currentUser
+            if (currentUser!=null)
+                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_trovatoFragment)
+            else
+                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_registration)
+        }
     }
 
 
