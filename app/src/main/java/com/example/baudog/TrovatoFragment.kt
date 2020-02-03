@@ -237,7 +237,7 @@ class TrovatoFragment : Fragment() {
         val db_Info: String = editText_InfoAggiuntive.text.toString()
 
 
-        val ref = FirebaseDatabase.getInstance().getReference("CANI")
+        val ref = FirebaseDatabase.getInstance().getReference("cani")
         val db_caneID: String = ref.push().key.toString()
 
 
@@ -254,7 +254,7 @@ class TrovatoFragment : Fragment() {
         )
 
 
-        ref.child("Vincenzo/Vincenzo1").setValue(cane)
+        ref.child(db_caneID).setValue(cane)
             .addOnCompleteListener { Toast.makeText(activity, "SALVATO", Toast.LENGTH_LONG).show() }
 
     }
