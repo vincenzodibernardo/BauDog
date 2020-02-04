@@ -2,6 +2,7 @@ package com.example.baudog
 
 import android.R.layout.simple_list_item_1
 import android.app.Activity
+import android.app.ProgressDialog
 import android.content.Intent
 import android.content.res.Resources
 import android.net.Uri
@@ -11,6 +12,7 @@ import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.*
 import android.widget.ArrayAdapter
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.navigation.Navigation
 import com.facebook.login.LoginManager
@@ -19,8 +21,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.UploadTask
 import kotlinx.android.synthetic.main.fragment_registration.*
 import kotlinx.android.synthetic.main.fragment_trovato.*
+import java.net.URI
 import java.util.*
 
 class TrovatoFragment : Fragment() {
@@ -30,6 +34,7 @@ class TrovatoFragment : Fragment() {
     private var chipValue: Boolean = true           // IL CANE HA IL CHIP ?
     private var collareValue: Boolean = true        // IL CANE HA IL COLLARE ?
     private var sesso: String = "Maschio"           // M O F ?
+    val db_caneID: String =""
 
 
 
@@ -37,6 +42,7 @@ class TrovatoFragment : Fragment() {
     private var storageReference: StorageReference? = null      //VARIABILE PER FIREBASE
     private var selectedPhotoUri : Uri?=null                    //VARIABILE PER FIREBASE
 
+    private var uriImageDownload  : Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -111,7 +117,7 @@ class TrovatoFragment : Fragment() {
             Log.d("Debug 1", "SALVA: Hai premuto SALVA")
             if (campiValidi())
             {
-                salvaCane()
+
                 uploadImage()
             }
         }
@@ -144,6 +150,7 @@ class TrovatoFragment : Fragment() {
         Bottone_AggiungiFoto.setOnClickListener {
 
             Log.d("Debug 1", " FOTO : Hai premuto su Camera")
+
         }
 
 
@@ -158,6 +165,8 @@ class TrovatoFragment : Fragment() {
 
         firebaseStorage = FirebaseStorage.getInstance()
         storageReference = FirebaseStorage.getInstance().reference
+
+
     }
 
     private fun galleriaImmagine() {
@@ -172,6 +181,8 @@ class TrovatoFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         if(requestCode==0 && resultCode==Activity.RESULT_OK )
         {
+
+
             selectedPhotoUri=data.data
             val bitmap=MediaStore.Images.Media.getBitmap(activity!!.contentResolver,selectedPhotoUri)
 
@@ -182,6 +193,7 @@ class TrovatoFragment : Fragment() {
         }
 
 
+
     }
 
     private fun uploadImage() {
@@ -189,9 +201,21 @@ class TrovatoFragment : Fragment() {
         if (selectedPhotoUri==null) return
         val filename=UUID.randomUUID().toString()
         val ref = FirebaseStorage.getInstance().getReference("/images/$filename")
+        ref.putFile(selectedPhotoUri!!).addOnSuccessListener {
 
-        ref.putFile(selectedPhotoUri!!)
+            ref.downloadUrl.addOnSuccessListener {
+
+                Log.d("Controllo","$it")
+                Log.d("Controllo2","$ref")
+
+                salvaCane(it.toString())
+            }
+        }
+
+
+
     }
+
 
 
     private fun campiValidi(): Boolean {
@@ -226,7 +250,7 @@ class TrovatoFragment : Fragment() {
     }
 
 
-    private fun salvaCane() {
+    private fun salvaCane(profileImageUrl:String) {
         val db_Razza: String = Multi_SelezionaRazza.text.toString()
         val db_Colore: String = editText_Colore.text.toString()
         val db_Sesso: String = sesso
@@ -235,6 +259,7 @@ class TrovatoFragment : Fragment() {
         val db_ColoreCollare: String = editText_ColoreCollare.text.toString()
         val db_NomeCollare: String = editText_NomeCollare.text.toString()
         val db_Info: String = editText_InfoAggiuntive.text.toString()
+        val db_ProfileImageUrl=profileImageUrl
 
 
         val ref = FirebaseDatabase.getInstance().getReference("cani")
@@ -250,12 +275,17 @@ class TrovatoFragment : Fragment() {
             db_Collare,
             db_ColoreCollare,
             db_NomeCollare,
-            db_Info
+            db_Info,
+            db_ProfileImageUrl
         )
 
 
         ref.child(db_caneID).setValue(cane)
-            .addOnCompleteListener { Toast.makeText(activity, "SALVATO", Toast.LENGTH_LONG).show() }
+            .addOnCompleteListener {
+
+                Toast.makeText(activity, "SALVATO", Toast.LENGTH_LONG).show()
+                Navigation.findNavController(view!!).navigate(R.id.action_trovatoFragment_to_smarritoFragment)
+            }
 
     }
 

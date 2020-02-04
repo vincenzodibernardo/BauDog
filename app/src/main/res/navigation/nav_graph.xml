@@ -15,7 +15,11 @@
     <fragment android:id="@+id/smarritoFragment" android:name="com.example.baudog.SmarritoFragment"
               android:label="fragment_smarrito" tools:layout="@layout/fragment_smarrito"/>
     <fragment android:id="@+id/trovatoFragment" android:name="com.example.baudog.TrovatoFragment"
-              android:label="fragment_trovato" tools:layout="@layout/fragment_trovato"/>
+              android:label="fragment_trovato" tools:layout="@layout/fragment_trovato">
+        <action
+            android:id="@+id/action_trovatoFragment_to_smarritoFragment"
+            app:destination="@id/smarritoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/registration"
         android:name="com.example.baudog.Registration"
