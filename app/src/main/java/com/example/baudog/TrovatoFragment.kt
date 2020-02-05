@@ -2,7 +2,6 @@ package com.example.baudog
 
 import android.R.layout.simple_list_item_1
 import android.app.Activity
-import android.app.ProgressDialog
 import android.content.Intent
 import android.content.res.Resources
 import android.net.Uri
@@ -12,7 +11,6 @@ import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.*
 import android.widget.ArrayAdapter
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.navigation.Navigation
 import com.facebook.login.LoginManager
@@ -21,10 +19,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.google.firebase.storage.UploadTask
 import kotlinx.android.synthetic.main.fragment_registration.*
 import kotlinx.android.synthetic.main.fragment_trovato.*
-import java.net.URI
 import java.util.*
 
 class TrovatoFragment : Fragment() {
@@ -198,22 +194,28 @@ class TrovatoFragment : Fragment() {
 
     private fun uploadImage() {
 
-        if (selectedPhotoUri==null) return
-        val filename=UUID.randomUUID().toString()
-        val ref = FirebaseStorage.getInstance().getReference("/images/$filename")
-        ref.putFile(selectedPhotoUri!!).addOnSuccessListener {
+        if (selectedPhotoUri==null)
+        {   salvaCane("") }
 
-            ref.downloadUrl.addOnSuccessListener {
+        else
+        {
+            val filename=UUID.randomUUID().toString()
+            val ref = FirebaseStorage.getInstance().getReference("/images/$filename")
+            ref.putFile(selectedPhotoUri!!).addOnSuccessListener {
 
-                Log.d("Controllo","$it")
-                Log.d("Controllo2","$ref")
+                ref.downloadUrl.addOnSuccessListener {
 
-                salvaCane(it.toString())
+                    Log.d("Controllo","$it")
+                    Log.d("Controllo2","$ref")
+
+                    salvaCane(it.toString())
+                }
+
             }
-        }
 
 
 
+    }
     }
 
 
@@ -250,7 +252,7 @@ class TrovatoFragment : Fragment() {
     }
 
 
-    private fun salvaCane(profileImageUrl:String) {
+    private fun salvaCane(profileImageUrl:String?) {
         val db_Razza: String = Multi_SelezionaRazza.text.toString()
         val db_Colore: String = editText_Colore.text.toString()
         val db_Sesso: String = sesso
@@ -259,7 +261,9 @@ class TrovatoFragment : Fragment() {
         val db_ColoreCollare: String = editText_ColoreCollare.text.toString()
         val db_NomeCollare: String = editText_NomeCollare.text.toString()
         val db_Info: String = editText_InfoAggiuntive.text.toString()
-        val db_ProfileImageUrl=profileImageUrl
+        var db_ProfileImageUrl:String?
+
+        db_ProfileImageUrl=profileImageUrl.toString()
 
 
         val ref = FirebaseDatabase.getInstance().getReference("cani")

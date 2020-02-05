@@ -34,22 +34,26 @@ class CaneAdapter(val context: Context?, val CaneList: ArrayList<Cane>) : Recycl
     {
         val recordRazza = view?.findViewById<TextView>(R.id.textView_showRazza)
         val recordSesso = view?.findViewById<TextView>(R.id.textView_showSesso)
-        val recordImage = view?.findViewById<ImageView>(R.id.imageView_showCane)
+        var recordImage = view?.findViewById<ImageView>(R.id.imageView_showCane)
         val recordNome = view?.findViewById<TextView>(R.id.textView_showNome)
 
         fun bind(cane: Cane, context: Context)
         {
-            val indirizzo :String
 
             recordRazza?.text = cane.razza
             recordSesso?.text = cane.sesso
             recordNome?.text=cane.nome_collare
 
-            indirizzo=cane.profileImageUrl
+            val indirizzo :String? = cane.profileImageUrl
 
-            if (indirizzo.trim().isNotEmpty())
+            if (indirizzo!!.trim().isNotEmpty())
             {
                 Picasso.get().load(indirizzo).into(recordImage)
+            }
+
+            if (indirizzo!!.trim().isEmpty())
+            {
+                recordImage!!.setImageResource(R.drawable.prova1)
             }
 
             if ((recordNome?.text.toString().trim().isEmpty())||(recordNome?.text.toString().trim()=="NULL"))
