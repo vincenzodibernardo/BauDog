@@ -1,7 +1,5 @@
 package com.example.baudog
 
-import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -9,10 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.fragment_home.*
-
 
 
 class SmarritoFragment : Fragment() {
@@ -46,23 +41,29 @@ class SmarritoFragment : Fragment() {
         ref = FirebaseDatabase.getInstance().getReference("cani")
 
 
+
         ref?.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
-            override fun onDataChange(p0: DataSnapshot) {
 
 
-                if(p0!!.exists()){
+            override fun onDataChange(p0: DataSnapshot)
+            {
+                CaneList!!.clear()
 
-                    for (h in p0.children){
+
+                if(p0.exists())
+                {
+                    for (h in p0.children)
+                    {
                         val cane = h.getValue(Cane::class.java)
                         CaneList?.add(cane!!)
                     }
 
-                    val adapter = CaneAdapter(context!!, CaneList!!)
-                    mRecyclerView?.setAdapter(adapter)
+                    val adapter = CaneAdapter(context, CaneList!!)
+                    mRecyclerView?.adapter = adapter
 
                 }
 

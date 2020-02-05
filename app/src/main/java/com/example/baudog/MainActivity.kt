@@ -1,11 +1,7 @@
 package com.example.baudog
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
+import android.support.v7.app.AppCompatActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,13 +14,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        }
-
-
-
-
-
     }
+
+}
 
 
 
