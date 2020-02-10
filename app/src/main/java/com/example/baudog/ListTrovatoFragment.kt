@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import com.google.firebase.database.*
 
 
-class SmarritoFragment : Fragment() {
+class ListTrovatoFragment : Fragment() {
 
 
     var fragmentView : View? = null
@@ -27,7 +27,7 @@ class SmarritoFragment : Fragment() {
         savedInstanceState: Bundle?
 
     ): View? {
-        fragmentView= LayoutInflater.from(activity).inflate(R.layout.fragment_smarrito, container, false)
+        fragmentView= LayoutInflater.from(activity).inflate(R.layout.fragment_list_ritrovamento, container, false)
 
         firedatabase = FirebaseDatabase.getInstance()
 
@@ -38,7 +38,7 @@ class SmarritoFragment : Fragment() {
 
 
         CaneList= arrayListOf<Cane>()
-        ref = FirebaseDatabase.getInstance().getReference("cani")
+        ref = FirebaseDatabase.getInstance().getReference("cani/trovati")
 
 
 
@@ -72,6 +72,9 @@ class SmarritoFragment : Fragment() {
 
         return  fragmentView
     }
+
+
+
 
 
 

@@ -1,50 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto"
-                                             xmlns:tools="http://schemas.android.com/tools"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent"
-                                             tools:context=".HomeFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment">
+
+
     <ImageView
-            android:src="@drawable/logo"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:id="@+id/Logo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/guideline2" app:layout_constraintStart_toStartOf="parent"
-            android:contentDescription="@string/Null" android:scaleType="centerInside"
-            android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
-    />
+        android:id="@+id/Logo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/Null"
+        android:scaleType="centerInside"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <android.support.constraint.Guideline
-            android:orientation="horizontal"
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <Button
+        android:id="@+id/Bottone_Ritrovamento"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bot1"
+        android:fontFamily="@font/arial_rounded_bold"
+        android:foreground="@drawable/ic_add2_foreground"
+        android:gravity="bottom|center_horizontal"
+        android:includeFontPadding="false"
+        android:paddingBottom="8dp"
+        android:textColor="@color/startblue"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <Button
+        android:id="@+id/Bottone_Smarrimento"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bot1"
+        android:fontFamily="@font/arial_rounded_bold"
+        android:foreground="@drawable/ic_searchplus_foreground"
+        android:gravity="bottom|center_horizontal"
+        android:includeFontPadding="false"
+        android:textColor="@color/startblue"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
+
+    <Button
+        android:id="@+id/Bottone_ListSmarrimento"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bot1"
+        android:fontFamily="@font/arial_rounded_bold"
+        android:foreground="@drawable/ic_found_foreground"
+        android:gravity="bottom|center_horizontal"
+        android:textColor="@color/startblue"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
+
+    <Button
+        android:id="@+id/Bottone_ListRitrovamento"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bot1"
+        android:fontFamily="@font/arial_rounded_bold"
+        android:foreground="@drawable/ic_list2_foreground"
+        android:gravity="bottom|center_horizontal"
+        android:includeFontPadding="false"
+        android:paddingBottom="6dp"
+        android:textColor="@color/startblue"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline5"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/guideline"
-            app:layout_constraintGuide_percent="0.75"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5
+" />
+
     <android.support.constraint.Guideline
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/guideline2"
-            app:layout_constraintGuide_percent="0.5"/>
-    <Button
-            android:text="@string/stringa_bottone_trovato"
-            style="@style/homeStyle"
-            android:background="@drawable/bottone_home1"
-            android:layout_width="0dp"
-            android:layout_height="76dp"
-            android:id="@+id/Bottone_Ritrovamento"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline2"
-            app:layout_constraintBottom_toTopOf="@+id/guideline"/>
-    <Button
-            android:text="@string/stringa_bottone_smarrimento"
-            style="@style/homeStyle"
-            android:background="@drawable/bottone_home1"
-            android:layout_width="0dp"
-            android:layout_height="76dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/Bottone_Smarrimento"
-            app:layout_constraintTop_toTopOf="@+id/guideline"/>
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.725" />
+
+
 </android.support.constraint.ConstraintLayout>

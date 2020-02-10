@@ -26,23 +26,19 @@ import java.util.*
 class TrovatoFragment : Fragment() {
 
     private var GoogleSignInClient : GoogleSignInClient? = null
-
-    private var chipValue: Boolean = true           // IL CANE HA IL CHIP ?
-    private var collareValue: Boolean = true        // IL CANE HA IL COLLARE ?
-    private var sesso: String = "Maschio"           // M O F ?
-    val db_caneID: String =""
+    private var chipValue: Boolean = true                               // IL CANE HA IL CHIP ?
+    private var collareValue: Boolean = true                            // IL CANE HA IL COLLARE ?
+    private var sesso: String = "Maschio"                               // M O F ?
 
 
 
-    private var firebaseStorage: FirebaseStorage? = null        //VARIABILE PER FIREBASE
-    private var storageReference: StorageReference? = null      //VARIABILE PER FIREBASE
-    private var selectedPhotoUri : Uri?=null                    //VARIABILE PER FIREBASE
-
-    private var uriImageDownload  : Uri? = null
+    private var firebaseStorage: FirebaseStorage? = null                //VARIABILE PER FIREBASE
+    private var storageReference: StorageReference? = null              //VARIABILE PER FIREBASE
+    private var selectedPhotoUri : Uri?=null                            //VARIABILE PER FIREBASE
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.setHasOptionsMenu(true)                            //MENU 3 PALLINE
+        this.setHasOptionsMenu(true)                                    //MENU 3 PALLINE
     }
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -85,7 +81,6 @@ class TrovatoFragment : Fragment() {
 
 
         }
-
         radioButton_CollareNo.setOnCheckedChangeListener { buttonView, isChecked ->
 
             if (isChecked) {
@@ -108,7 +103,6 @@ class TrovatoFragment : Fragment() {
             Log.d("Debug 1", "ANNULLA: Hai premuto Annulla")
             Navigation.findNavController(it).navigateUp()
         }
-
         button_Salva.setOnClickListener {
             Log.d("Debug 1", "SALVA: Hai premuto SALVA")
             if (campiValidi())
@@ -129,6 +123,7 @@ class TrovatoFragment : Fragment() {
             Log.d("Debug 1", " CHIP : Hai premuto NO")
             chipValue = false
         }
+
 
         //BOTTONI SESSO MASCHIO E FEMMINA
         radioButton_Femmina.setOnClickListener {
@@ -174,6 +169,7 @@ class TrovatoFragment : Fragment() {
 
     }
 
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         if(requestCode==0 && resultCode==Activity.RESULT_OK )
         {
@@ -191,6 +187,7 @@ class TrovatoFragment : Fragment() {
 
 
     }
+
 
     private fun uploadImage() {
 
@@ -217,7 +214,6 @@ class TrovatoFragment : Fragment() {
 
     }
     }
-
 
 
     private fun campiValidi(): Boolean {
@@ -253,20 +249,30 @@ class TrovatoFragment : Fragment() {
 
 
     private fun salvaCane(profileImageUrl:String?) {
+
         val db_Razza: String = Multi_SelezionaRazza.text.toString()
+
         val db_Colore: String = editText_Colore.text.toString()
+
         val db_Sesso: String = sesso
+
         val db_Chip: Boolean = chipValue
+
         val db_Collare: Boolean = collareValue
+
         val db_ColoreCollare: String = editText_ColoreCollare.text.toString()
+
         val db_NomeCollare: String = editText_NomeCollare.text.toString()
+
         val db_Info: String = editText_InfoAggiuntive.text.toString()
-        var db_ProfileImageUrl:String?
 
-        db_ProfileImageUrl=profileImageUrl.toString()
+        val db_ProfileImageUrl:String?=profileImageUrl.toString()
+
+        val db_Rit_Smarr =  "Trovato"
 
 
-        val ref = FirebaseDatabase.getInstance().getReference("cani")
+
+        val ref = FirebaseDatabase.getInstance().getReference("cani/smarriti")
         val db_caneID: String = ref.push().key.toString()
 
 
@@ -280,7 +286,8 @@ class TrovatoFragment : Fragment() {
             db_ColoreCollare,
             db_NomeCollare,
             db_Info,
-            db_ProfileImageUrl
+            db_ProfileImageUrl,
+            db_Rit_Smarr
         )
 
 
@@ -288,10 +295,11 @@ class TrovatoFragment : Fragment() {
             .addOnCompleteListener {
 
                 Toast.makeText(activity, "SALVATO", Toast.LENGTH_LONG).show()
-                Navigation.findNavController(view!!).navigate(R.id.action_trovatoFragment_to_smarritoFragment)
+                Navigation.findNavController(view!!).navigate(R.id.action_trovatoFragment_to_ListTrovatoFragment)
             }
 
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater?)
     {
@@ -324,9 +332,9 @@ class TrovatoFragment : Fragment() {
         if (id == R.id.Login_Item)
         {
             //do your action here, im just showing toast
-            Toast.makeText(context, "LOGIN ", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "LOGIN", Toast.LENGTH_SHORT).show()
             textView_Login.visibility = View.VISIBLE
-            textView_SignIn.visibility=View.GONE
+            textView_SignIn.visibility=View.INVISIBLE
 
             button_LoginUserPassword.visibility=View.VISIBLE
             button_LoginFacebook.visibility=View.VISIBLE
@@ -341,7 +349,7 @@ class TrovatoFragment : Fragment() {
         {
             //do your action here, im just showing toast
             Toast.makeText(context, "SIGN IN", Toast.LENGTH_SHORT).show()
-            textView_Login.visibility = View.GONE
+            textView_Login.visibility = View.INVISIBLE
             textView_SignIn.visibility=View.VISIBLE
 
             button_LoginUserPassword.visibility=View.GONE

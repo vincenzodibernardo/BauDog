@@ -5,6 +5,7 @@
             android:layout_height="match_parent" >
 
     <android.support.constraint.ConstraintLayout
+            android:background="@drawable/gradient_background"
             android:id="@+id/Constraint_Layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -12,16 +13,18 @@
             tools:context=".TrovatoFragment">
 
         <AutoCompleteTextView
-                android:id="@+id/Multi_SelezionaRazza"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:hint="@string/hint_Razza"
-                android:textSize="24sp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/textViewRazza"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline3" />
+            android:id="@+id/Multi_SelezionaRazza"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:hint="@string/hint_Razza"
+            android:textColor="@color/endblue"
+            android:textSize="20sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewRazza"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline3" />
 
         <TextView
                 android:id="@+id/textViewRazza"
@@ -30,25 +33,28 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
                 android:text="@string/TextView_Razza"
+                android:textColor="@color/endblue"
+                android:fontFamily="@font/arial_rounded_bold"
                 android:textAlignment="viewStart"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewCartaIdendtita" />
 
         <TextView
-                android:id="@+id/textViewCartaIdendtita"
-                style="@style/homeStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/bottone_home1"
-                android:gravity="center|center_horizontal|center_vertical"
-                android:text="@string/info_dog"
-                android:textAlignment="center"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/textViewCartaIdendtita"
+            style="@style/homeStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/chalkduster"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="TROVATO"
+            android:textAlignment="center"
+            android:textColor="@color/endblue"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <RadioGroup
                 android:id="@+id/RadioGroup_Sesso"
@@ -63,76 +69,89 @@
                 app:layout_constraintTop_toTopOf="@+id/textView_Sesso">
 
             <RadioButton
-                    android:id="@+id/radioButton_Maschio"
-                    android:layout_width="60dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:checked="true"
-                    android:text="@string/maschio"
-                    android:textSize="24sp" />
+                android:id="@+id/radioButton_Maschio"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:checked="true"
+                android:fontFamily="@font/arial_rounded_bold"
+                android:text="@string/maschio"
+                android:textColor="@color/endblue"
+                android:textSize="24sp" />
 
             <RadioButton
-                    android:id="@+id/radioButton_Femmina"
-                    android:layout_width="60dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/femmina"
-                    android:textSize="24sp" />
+                android:id="@+id/radioButton_Femmina"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/arial_rounded_bold"
+                android:text="@string/femmina"
+                android:textColor="@color/endblue"
+                android:textSize="24sp" />
         </RadioGroup>
 
         <TextView
-                android:id="@+id/textView_Colore"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="50dp"
-                android:text="@string/TextView_colore"
-                android:textSize="24sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/RadioGroup_Sesso" />
+            android:id="@+id/textView_Colore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/TextView_colore"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/RadioGroup_Sesso" />
 
         <EditText
-                android:id="@+id/editText_Colore"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:ems="10"
-                android:hint="@string/hint_Colore"
-                android:importantForAutofill="no"
-                android:inputType="textPersonName"
-                android:textSize="24sp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/textView_Colore"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline3" />
+            android:id="@+id/editText_Colore"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:hint="@string/hint_Colore"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:textColor="@color/endblue"
+            android:textSize="20sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView_Colore"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline3" />
 
         <EditText
-                android:id="@+id/editText_ColoreCollare"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="8dp"
-                android:ems="10"
-                android:gravity="clip_horizontal|center_horizontal"
-                android:hint="@string/hint_ColoreCollare"
-                android:importantForAutofill="no"
-                android:inputType="textPersonName"
-                android:singleLine="true"
-                android:textSize="24sp"
-                android:visibility="visible"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline3"
-                app:layout_constraintTop_toBottomOf="@+id/RadioGroup_Collare" />
+            android:id="@+id/editText_ColoreCollare"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:gravity="clip_horizontal|center_horizontal"
+            android:hint="@string/hint_ColoreCollare"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:singleLine="true"
+            android:textColor="@color/endblue"
+            android:textSize="20sp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@+id/RadioGroup_Collare" />
 
         <android.support.constraint.Guideline
-                android:id="@+id/guideline3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="94dp" />
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="122dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="106dp"
+            app:layout_constraintStart_toEndOf="@+id/textView_Collare" />
 
         <TextView
+            android:textColor="@color/endblue"
                 android:id="@+id/textView_Collare"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -141,7 +160,8 @@
                 android:text="@string/TextView_Collare"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_Chip" />
+                app:layout_constraintTop_toBottomOf="@+id/textView_Chip"
+                android:fontFamily="@font/arial_rounded_bold"/>
 
         <RadioGroup
                 android:id="@+id/RadioGroup_Collare"
@@ -156,10 +176,12 @@
 
             <RadioButton
                     android:id="@+id/radioButton_CollareSi"
+                    android:textColor="@color/endblue"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checked="true"
+                    android:fontFamily="@font/arial_rounded_bold"
                     android:text="@string/si"
                     android:textAlignment="viewStart"
                     android:textSize="24sp" />
@@ -170,46 +192,56 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/no"
-                    android:textSize="24sp" />
+                    android:fontFamily="@font/arial_rounded_bold"
+                    android:textSize="24sp"
+                    android:textColor="@color/endblue"/>
         </RadioGroup>
 
         <EditText
-                android:id="@+id/editText_InfoAggiuntive"
-                android:layout_width="0dp"
-                android:layout_height="354dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/back"
-                android:ems="10"
-                android:gravity="top"
-                android:hint="@string/hint_InfoAggiuntive"
-                android:importantForAutofill="no"
-                android:inputType="textMultiLine"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_InfoAggiuntive" />
+            android:id="@+id/editText_InfoAggiuntive"
+            android:layout_width="0dp"
+            android:layout_height="354dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/back"
+            android:ems="10"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:gravity="top"
+            android:hint="@string/hint_InfoAggiuntive"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_InfoAggiuntive" />
 
         <EditText
-                android:id="@+id/editText_NomeCollare"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="8dp"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="@string/hint_NomeCollare"
-                android:importantForAutofill="no"
-                android:inputType="textPersonName"
-                android:textSize="24sp"
-                android:visibility="visible"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline3"
-                app:layout_constraintTop_toBottomOf="@+id/editText_ColoreCollare" />
+            android:id="@+id/editText_NomeCollare"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:gravity="center"
+            android:hint="@string/hint_NomeCollare"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:textColor="@color/endblue"
+            android:textSize="20sp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@+id/editText_ColoreCollare" />
 
         <TextView
+
                 android:id="@+id/textView_InfoAggiuntive"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -217,39 +249,46 @@
                 android:layout_marginTop="50dp"
                 android:text="@string/textView_InfoAggiuntive"
                 android:textSize="24sp"
+                android:textColor="@color/endblue"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText_NomeCollare" />
+                app:layout_constraintTop_toBottomOf="@+id/editText_NomeCollare"
+                android:fontFamily="@font/arial_rounded_bold"
+            />
 
         <Button
-                android:id="@+id/Bottone_AggiungiFoto"
+            android:id="@+id/Bottone_AggiungiFoto"
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
 
-                android:layout_marginTop="10dp"
-                android:background="@drawable/buttonshape"
-                android:text="@string/aggiungi_foto"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText_InfoAggiuntive" />
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/buttonshape"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/aggiungi_foto"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_InfoAggiuntive" />
 
 
         <Button
-                android:id="@+id/Bottone_CaricaFoto"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/buttonshape"
-                android:text="Carica foto"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Bottone_AggiungiFoto" />
+            android:id="@+id/Bottone_CaricaFoto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/buttonshape"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/carica_foto"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Bottone_AggiungiFoto" />
 
         <RadioGroup
                 android:id="@+id/RadioGroup_Chip"
@@ -264,6 +303,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView_Colore">
 
             <RadioButton
+                android:textColor="@color/endblue"
                     android:id="@+id/radioButton_ChipSi"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
@@ -271,19 +311,23 @@
                     android:checked="true"
                     android:focusable="true"
                     android:text="@string/si"
+                    android:fontFamily="@font/arial_rounded_bold"
                     android:textSize="24sp" />
 
             <RadioButton
+                android:textColor="@color/endblue"
                     android:id="@+id/radioButton_ChipNo"
                     android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:fontFamily="@font/arial_rounded_bold"
                     android:checked="false"
                     android:text="@string/no"
                     android:textSize="24sp" />
         </RadioGroup>
 
         <TextView
+            android:textColor="@color/endblue"
                 android:id="@+id/textView_Sesso"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -291,19 +335,22 @@
                 android:layout_marginTop="50dp"
                 android:text="@string/TextView_sesso"
                 android:textSize="24sp"
+                android:fontFamily="@font/arial_rounded_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewRazza" />
 
         <TextView
-                android:id="@+id/textView_Chip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="50dp"
-                android:text="@string/textView_chip"
-                android:textSize="24sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_Colore" />
+            android:id="@+id/textView_Chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/textView_chip"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_Colore" />
 
         <Button
                 android:id="@+id/button_Salva"
@@ -313,7 +360,7 @@
                 android:layout_marginTop="50dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="Save"
+                android:text="@string/save"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/button_Annulla"
                 app:layout_constraintStart_toStartOf="parent"
@@ -325,7 +372,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="Annulla"
+                android:text="@string/annulla"
                 app:layout_constraintBaseline_toBaselineOf="@+id/button_Salva"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/button_Salva" />

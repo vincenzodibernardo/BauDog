@@ -38,7 +38,10 @@ class Registration : Fragment() {
     var RC_SIGN_IN = 1000
     var callbackManager = CallbackManager.Factory.create()
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
 
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.setHasOptionsMenu(true)
@@ -47,6 +50,7 @@ class Registration : Fragment() {
 
 
     }
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?
     {
@@ -95,8 +99,10 @@ class Registration : Fragment() {
                 createUser()
         }
         button_LoginUserPassword.setOnClickListener {
+
             if(Control())
                 loginEmail()
+
         }
 
 
@@ -117,7 +123,12 @@ class Registration : Fragment() {
 
 
         printHashKey(context!!)
+
+
     }
+
+
+
 
 
 
@@ -158,16 +169,19 @@ class Registration : Fragment() {
     }
 
 
-    private fun FirebaseAuthWithGoogle(acct:GoogleSignInAccount)
-    {
-        val credential = GoogleAuthProvider.getCredential(acct.idToken,null)
+    private fun FirebaseAuthWithGoogle(acct:GoogleSignInAccount) {
+        val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
         FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener { task ->
             if (task.isSuccessful) {
 
                 Toast.makeText(context!!, "Utente Registrato", Toast.LENGTH_LONG).show()
-                Navigation.findNavController(view!!).navigate(R.id.action_registration_to_trovatoFragment)
-            }
 
+
+                Navigation.findNavController(view!!)
+                    .navigate(R.id.action_registration_to_trovatoFragment)
+
+
+            }
         }
     }
 
@@ -259,8 +273,6 @@ class Registration : Fragment() {
         Toast.makeText(context, "LOGOUT", Toast.LENGTH_SHORT).show()
     }
 
-
-
     override fun onOptionsItemSelected(item: MenuItem?): Boolean
     {
 
@@ -287,7 +299,7 @@ class Registration : Fragment() {
 
             Toast.makeText(context, "LOGIN ", Toast.LENGTH_SHORT).show()
             textView_Login.visibility = View.VISIBLE
-            textView_SignIn.visibility=View.GONE
+            textView_SignIn.visibility=View.INVISIBLE
 
             button_LoginUserPassword.visibility=View.VISIBLE
             button_LoginFacebook.visibility=View.VISIBLE
@@ -305,7 +317,7 @@ class Registration : Fragment() {
         {
 
             Toast.makeText(context, "LOGIN ", Toast.LENGTH_SHORT).show()
-            textView_Login.visibility = View.GONE
+            textView_Login.visibility = View.INVISIBLE
             textView_SignIn.visibility=View.VISIBLE
 
             button_LoginUserPassword.visibility=View.GONE

@@ -4,7 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".SmarritoFragment">
+             tools:context=".ListTrovatoFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/caneList"
@@ -14,5 +14,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/riga_cane"/>
+        tools:listitem="@layout/riga_cane" />
 </android.support.constraint.ConstraintLayout>

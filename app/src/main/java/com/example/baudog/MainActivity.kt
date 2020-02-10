@@ -3,8 +3,11 @@ package com.example.baudog
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 
+public var casa:String = ""
 
 class MainActivity : AppCompatActivity() {
+
+
 
 
 
@@ -14,7 +17,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
+
+
     }
+
 
 }
 
