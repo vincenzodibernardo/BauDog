@@ -13,5 +13,4 @@ data class Cane(val id              : String    =   "",
                 var colore_collare  : String    =   "",
                 var nome_collare    : String    =   "",
                 var info            : String    =   "",
-                val profileImageUrl : String?   =   "",
-                val rit_smarr       : String    =   "") : Parcelable
+                val profileImageUrl : String?   =   "") : Parcelable
