@@ -25,17 +25,32 @@ class HomeFragment : Fragment()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
         super.onViewCreated(view, savedInstanceState)
-        Bottone_Smarrimento.setOnClickListener { Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_smarritoFragment) }
+        Bottone_Smarrimento.setOnClickListener {
+            Passaggio("smarrito")
+            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_trovatoFragment)
+
+        }
 
         Bottone_Ritrovamento.setOnClickListener{
 
             val currentUser = FirebaseAuth.getInstance().currentUser
 
             if (currentUser!=null)
-                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_trovatoFragment)
+            {   Passaggio("trovato")
+                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_trovatoFragment) }
+
             else
-                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_registration)
-        }
+                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_registration) }
+
+
+
+        Bottone_ListRitrovamento.setOnClickListener {
+            Passaggio("trovati")
+            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_ListTrovatoFragment) }
+
+        Bottone_ListSmarrimento.setOnClickListener {
+            Passaggio("smarriti")
+            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_ListTrovatoFragment) }
     }
 
 }

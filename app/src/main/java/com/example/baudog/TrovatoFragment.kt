@@ -22,6 +22,7 @@ import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.fragment_registration.*
 import kotlinx.android.synthetic.main.fragment_trovato.*
 import java.util.*
+import kotlin.math.log
 
 class TrovatoFragment : Fragment() {
 
@@ -32,6 +33,8 @@ class TrovatoFragment : Fragment() {
     private var sesso: String = "Maschio"           // M O F ?
     val db_caneID: String =""
 
+    var fileDest : String=""
+
 
 
     private var firebaseStorage: FirebaseStorage? = null        //VARIABILE PER FIREBASE
@@ -39,6 +42,8 @@ class TrovatoFragment : Fragment() {
     private var selectedPhotoUri : Uri?=null                    //VARIABILE PER FIREBASE
 
     private var uriImageDownload  : Uri? = null
+
+    var smarr_trov : String = Passaggio("QUI")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +62,13 @@ class TrovatoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        textView_Trovato.text= smarr_trov.toUpperCase()
+        if (smarr_trov=="trovato")  fileDest = "trovati"
+        if (smarr_trov=="smarrito") fileDest = "smarriti"
+
+        Log.d("find",smarr_trov)
 
 
         // Serve a far mostrare la lista delle razze dei cani in Multiline text
@@ -142,12 +154,6 @@ class TrovatoFragment : Fragment() {
 
 
 
-        //DA IMPLEMENTARE
-        Bottone_AggiungiFoto.setOnClickListener {
-
-            Log.d("Debug 1", " FOTO : Hai premuto su Camera")
-
-        }
 
 
 
@@ -200,7 +206,7 @@ class TrovatoFragment : Fragment() {
         else
         {
             val filename=UUID.randomUUID().toString()
-            val ref = FirebaseStorage.getInstance().getReference("/images/$filename")
+            val ref = FirebaseStorage.getInstance().getReference("/images/$fileDest")
             ref.putFile(selectedPhotoUri!!).addOnSuccessListener {
 
                 ref.downloadUrl.addOnSuccessListener {
@@ -266,7 +272,7 @@ class TrovatoFragment : Fragment() {
         db_ProfileImageUrl=profileImageUrl.toString()
 
 
-        val ref = FirebaseDatabase.getInstance().getReference("cani")
+        val ref = FirebaseDatabase.getInstance().getReference("cani/$fileDest")
         val db_caneID: String = ref.push().key.toString()
 
 
@@ -288,7 +294,16 @@ class TrovatoFragment : Fragment() {
             .addOnCompleteListener {
 
                 Toast.makeText(activity, "SALVATO", Toast.LENGTH_LONG).show()
-                Navigation.findNavController(view!!).navigate(R.id.action_trovatoFragment_to_smarritoFragment)
+
+
+                Log.d("CHECCO","PASSAGGIO 0 : $smarr_trov")
+                if(smarr_trov.trim()=="smarrito"){ smarr_trov="smarriti"}
+                if(smarr_trov.trim()=="trovato") { smarr_trov="trovati"}
+
+
+                Passaggio(smarr_trov)
+                Log.d("CHECCO","PASSAGGIO 1 : $smarr_trov")
+                Navigation.findNavController(view!!).navigate(R.id.action_trovatoFragment_to_ListTrovatoFragment)
             }
 
     }

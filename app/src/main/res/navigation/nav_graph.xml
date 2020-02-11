@@ -6,19 +6,29 @@
 
     <fragment android:id="@+id/homeFragment" android:name="com.example.baudog.HomeFragment"
               android:label="fragment_home" tools:layout="@layout/fragment_home">
-        <action android:id="@+id/action_homeFragment_to_smarritoFragment" app:destination="@id/smarritoFragment"/>
+        <action android:id="@+id/action_homeFragment_to_ListTrovatoFragment" app:destination="@id/ListTrovatoFragment"/>
         <action android:id="@+id/action_homeFragment_to_trovatoFragment" app:destination="@id/trovatoFragment"/>
         <action
             android:id="@+id/action_homeFragment_to_registration"
             app:destination="@id/registration" />
+        <action
+            android:id="@+id/action_homeFragment_to_listSmarritiFragment"
+            app:destination="@id/listSmarritiFragment" />
     </fragment>
-    <fragment android:id="@+id/smarritoFragment" android:name="com.example.baudog.SmarritoFragment"
-              android:label="fragment_smarrito" tools:layout="@layout/fragment_smarrito"/>
+    <fragment
+        android:id="@+id/ListTrovatoFragment"
+        android:name="com.example.baudog.ListTrovatoFragment"
+        android:label="fragment_listTrovato"
+        tools:layout="@layout/fragment_listTrovato" >
+        <action
+            android:id="@+id/action_ListTrovatoFragment_to_infoCane"
+            app:destination="@id/infoCane" />
+    </fragment>
     <fragment android:id="@+id/trovatoFragment" android:name="com.example.baudog.TrovatoFragment"
               android:label="fragment_trovato" tools:layout="@layout/fragment_trovato">
         <action
-            android:id="@+id/action_trovatoFragment_to_smarritoFragment"
-            app:destination="@id/smarritoFragment" />
+            android:id="@+id/action_trovatoFragment_to_ListTrovatoFragment"
+            app:destination="@id/ListTrovatoFragment" />
     </fragment>
     <fragment
         android:id="@+id/registration"
@@ -28,5 +38,18 @@
         <action
             android:id="@+id/action_registration_to_trovatoFragment"
             app:destination="@id/trovatoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoCane"
+        android:name="com.example.baudog.InfoCane"
+        android:label="InfoCane" />
+    <fragment
+        android:id="@+id/listSmarritiFragment"
+        android:name="com.example.baudog.ListSmarritiFragment"
+        android:label="fragment_list_smarriti"
+        tools:layout="@layout/fragment_list_smarriti" >
+        <action
+            android:id="@+id/action_listSmarritiFragment_to_infoCane"
+            app:destination="@id/infoCane" />
     </fragment>
 </navigation>

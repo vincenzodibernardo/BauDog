@@ -1,20 +1,40 @@
 package com.example.baudog
 
 import android.content.Context
+import android.os.Bundle
+import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.Navigation
 import com.squareup.picasso.Picasso
 
-class CaneAdapter(val context: Context?, val CaneList: ArrayList<Cane>) : RecyclerView.Adapter<CaneAdapter.Holder>()
+class CaneAdapter(val context: Context?, val CaneList: ArrayList<Cane>, val arrivo:String) : RecyclerView.Adapter<CaneAdapter.Holder>()
 {
 
     override fun onBindViewHolder(holder: Holder, position: Int)
     {
+        val cane = CaneList.get(position)
         holder.bind(CaneList[position], context!!)
+
+        holder.itemView.setOnClickListener {
+
+
+            // Creo un bundle e vi inserisco la birra da visualizzare
+            val b = Bundle()
+            b.putParcelable("cane", cane)     //TODO: Il nome dell'ogggetto andrebbe inserito in un solo punto!!
+
+            if(arrivo=="Trovato")
+                Navigation.findNavController(it).navigate(R.id.action_ListTrovatoFragment_to_infoCane, b)
+
+            if (arrivo=="Smarrito")
+                Navigation.findNavController(it).navigate(R.id.action_listSmarritiFragment_to_infoCane, b)
+
+        }
+
     }
 
 
@@ -42,14 +62,22 @@ class CaneAdapter(val context: Context?, val CaneList: ArrayList<Cane>) : Recycl
 
             recordRazza?.text = cane.razza
             recordSesso?.text = cane.sesso
-            recordNome?.text=cane.nome_collare
+            recordNome?.text  = cane.nome_collare
+
+
 
             val indirizzo :String? = cane.profileImageUrl
+
 
             if (indirizzo!!.trim().isNotEmpty())
             {
                 Picasso.get().load(indirizzo).into(recordImage)
             }
+
+
+
+
+
 
             if (indirizzo!!.trim().isEmpty())
             {
