@@ -137,12 +137,6 @@ class TrovatoFragment : Fragment() {
 
 
 
-        //DA IMPLEMENTARE
-        Bottone_AggiungiFoto.setOnClickListener {
-
-            Log.d("Debug 1", " FOTO : Hai premuto su Camera")
-
-        }
 
 
 
@@ -286,8 +280,8 @@ class TrovatoFragment : Fragment() {
             db_ColoreCollare,
             db_NomeCollare,
             db_Info,
-            db_ProfileImageUrl,
-            db_Rit_Smarr
+            db_ProfileImageUrl
+
         )
 
 
