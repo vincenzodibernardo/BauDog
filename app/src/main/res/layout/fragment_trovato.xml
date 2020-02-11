@@ -21,26 +21,42 @@
             android:fontFamily="@font/arial_rounded_bold"
             android:hint="@string/hint_Razza"
             android:textColor="@color/endblue"
-            android:textSize="24sp"
+            android:textSize="20sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/textViewRazza"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline3" />
 
         <TextView
-            android:id="@+id/textViewRazza"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
-            android:fontFamily="@font/arial_rounded_bold"
-            android:text="@string/TextView_Razza"
-            android:textAlignment="viewStart"
-            android:textColor="@color/endblue"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_Trovato" />
+                android:id="@+id/textViewRazza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/TextView_Razza"
+                android:textColor="@color/endblue"
+                android:fontFamily="@font/arial_rounded_bold"
+                android:textAlignment="viewStart"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCartaIdendtita" />
 
-         <RadioGroup
+        <TextView
+            android:id="@+id/textViewCartaIdendtita"
+            style="@style/homeStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/chalkduster"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="TROVATO"
+            android:textAlignment="center"
+            android:textColor="@color/endblue"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
                 android:id="@+id/RadioGroup_Sesso"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -119,7 +135,7 @@
             android:inputType="textPersonName"
             android:singleLine="true"
             android:textColor="@color/endblue"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline3"
@@ -135,19 +151,19 @@
             app:layout_constraintStart_toEndOf="@+id/textView_Collare" />
 
         <TextView
-
-            android:id="@+id/textView_Collare"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="50dp"
-            android:fontFamily="@font/arial_rounded_bold"
-            android:text="@string/TextView_Collare"
             android:textColor="@color/endblue"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_Chip" />
-            <RadioGroup
+                android:id="@+id/textView_Collare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="50dp"
+                android:text="@string/TextView_Collare"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_Chip"
+                android:fontFamily="@font/arial_rounded_bold"/>
+
+        <RadioGroup
                 android:id="@+id/RadioGroup_Collare"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -159,28 +175,26 @@
                 app:layout_constraintTop_toTopOf="@+id/textView_Collare">
 
             <RadioButton
-
-                android:id="@+id/radioButton_CollareSi"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:checked="true"
-                android:fontFamily="@font/arial_rounded_bold"
-                android:text="@string/si"
-                android:textAlignment="viewStart"
-                android:textColor="@color/endblue"
-                android:textSize="24sp" />
+                    android:id="@+id/radioButton_CollareSi"
+                    android:textColor="@color/endblue"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:fontFamily="@font/arial_rounded_bold"
+                    android:text="@string/si"
+                    android:textAlignment="viewStart"
+                    android:textSize="24sp" />
 
             <RadioButton
-                android:id="@+id/radioButton_CollareNo"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/arial_rounded_bold"
-                android:text="@string/no"
-                android:textColor="@color/endblue"
-                android:textSize="24sp" />
-
+                    android:id="@+id/radioButton_CollareNo"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/no"
+                    android:fontFamily="@font/arial_rounded_bold"
+                    android:textSize="24sp"
+                    android:textColor="@color/endblue"/>
         </RadioGroup>
 
         <EditText
@@ -200,8 +214,8 @@
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:paddingEnd="10dp"
-            android:textSize="24sp"
-
+            android:paddingRight="10dp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView_InfoAggiuntive" />
@@ -220,40 +234,61 @@
             android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:textColor="@color/endblue"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline3"
             app:layout_constraintTop_toBottomOf="@+id/editText_ColoreCollare" />
 
         <TextView
-            android:id="@+id/textView_InfoAggiuntive"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="50dp"
-            android:fontFamily="@font/arial_rounded_bold"
-            android:text="@string/textView_InfoAggiuntive"
-            android:textColor="@color/endblue"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText_NomeCollare" />
 
+                android:id="@+id/textView_InfoAggiuntive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="50dp"
+                android:text="@string/textView_InfoAggiuntive"
+                android:textSize="24sp"
+                android:textColor="@color/endblue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText_NomeCollare"
+                android:fontFamily="@font/arial_rounded_bold"
+            />
+
+        <Button
+            android:id="@+id/Bottone_AggiungiFoto"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/buttonshape"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/aggiungi_foto"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_InfoAggiuntive" />
 
 
         <Button
             android:id="@+id/Bottone_CaricaFoto"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
             android:background="@drawable/buttonshape"
             android:fontFamily="@font/arial_rounded_bold"
-            android:text="Carica foto"
+            android:text="@string/carica_foto"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/ImmagineCane"
-            app:layout_constraintTop_toBottomOf="@+id/ImmagineCane" />
-
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Bottone_AggiungiFoto" />
 
         <RadioGroup
                 android:id="@+id/RadioGroup_Chip"
@@ -268,43 +303,41 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView_Colore">
 
             <RadioButton
-
-                android:id="@+id/radioButton_ChipSi"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:checked="true"
-                android:focusable="true"
-                android:fontFamily="@font/arial_rounded_bold"
-                android:text="@string/si"
                 android:textColor="@color/endblue"
-                android:textSize="24sp" />
+                    android:id="@+id/radioButton_ChipSi"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:focusable="true"
+                    android:text="@string/si"
+                    android:fontFamily="@font/arial_rounded_bold"
+                    android:textSize="24sp" />
 
             <RadioButton
-                android:id="@+id/radioButton_ChipNo"
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:checked="false"
-                android:fontFamily="@font/arial_rounded_bold"
-                android:text="@string/no"
                 android:textColor="@color/endblue"
-                android:textSize="24sp" />
+                    android:id="@+id/radioButton_ChipNo"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/arial_rounded_bold"
+                    android:checked="false"
+                    android:text="@string/no"
+                    android:textSize="24sp" />
         </RadioGroup>
 
         <TextView
-            android:id="@+id/textView_Sesso"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="50dp"
-            android:fontFamily="@font/arial_rounded_bold"
-            android:text="@string/TextView_sesso"
             android:textColor="@color/endblue"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewRazza" />
-
+                android:id="@+id/textView_Sesso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="50dp"
+                android:text="@string/TextView_sesso"
+                android:textSize="24sp"
+                android:fontFamily="@font/arial_rounded_bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRazza" />
 
         <TextView
             android:id="@+id/textView_Chip"
@@ -320,60 +353,43 @@
             app:layout_constraintTop_toBottomOf="@+id/textView_Colore" />
 
         <Button
-
-            android:id="@+id/button_Salva"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/bottone_white"
-            android:text="Save"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button_Annulla"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Bottone_CaricaFoto" />
+                android:id="@+id/button_Salva"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/save"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/button_Annulla"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ImmagineCane" />
 
         <Button
-            android:id="@+id/button_Annulla"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/bottone_white"
-            android:text="Annulla"
-            app:layout_constraintBaseline_toBaselineOf="@+id/button_Salva"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/button_Salva" />
-
+                android:id="@+id/button_Annulla"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/annulla"
+                app:layout_constraintBaseline_toBaselineOf="@+id/button_Salva"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button_Salva" />
 
         <ImageView
-            android:id="@+id/ImmagineCane"
-            android:layout_width="350dp"
-            android:layout_height="400dp"
-            android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/button_Annulla"
-            app:layout_constraintDimensionRatio="2.2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText_InfoAggiuntive"
-            tools:srcCompat="@tools:sample/avatars[0]" />
-
-        <TextView
-            android:id="@+id/textView_Trovato"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/chalkduster"
-            android:gravity="center"
-            android:text="TROVATO"
-            android:textColor="@color/endblue"
-            android:textSize="36sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                android:id="@+id/ImmagineCane"
+                android:layout_width="346dp"
+                android:layout_height="399dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/button_Annulla"
+                app:layout_constraintDimensionRatio="2.2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Bottone_CaricaFoto"
+                tools:srcCompat="@tools:sample/avatars[0]" />
 
 
     </android.support.constraint.ConstraintLayout>

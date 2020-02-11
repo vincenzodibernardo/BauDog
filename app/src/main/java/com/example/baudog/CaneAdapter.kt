@@ -12,7 +12,7 @@ import android.widget.TextView
 import androidx.navigation.Navigation
 import com.squareup.picasso.Picasso
 
-class CaneAdapter(val context: Context?, val CaneList: ArrayList<Cane>, val arrivo:String) : RecyclerView.Adapter<CaneAdapter.Holder>()
+class CaneAdapter(val context: Context?, val CaneList: ArrayList<Cane>) : RecyclerView.Adapter<CaneAdapter.Holder>()
 {
 
     override fun onBindViewHolder(holder: Holder, position: Int)
@@ -26,14 +26,7 @@ class CaneAdapter(val context: Context?, val CaneList: ArrayList<Cane>, val arri
             // Creo un bundle e vi inserisco la birra da visualizzare
             val b = Bundle()
             b.putParcelable("cane", cane)     //TODO: Il nome dell'ogggetto andrebbe inserito in un solo punto!!
-
-
-            if(arrivo=="Trovato")
-                Navigation.findNavController(it).navigate(R.id.action_ListTrovatoFragment_to_infoCane, b)
-
-            if (arrivo=="Smarrito")
-                Navigation.findNavController(it).navigate(R.id.action_ListTrovatoFragment_to_infoCane, b)
-
+            Navigation.findNavController(it).navigate(R.id.action_ListTrovatoFragment_to_infoCane, b)
         }
 
     }
@@ -64,15 +57,12 @@ class CaneAdapter(val context: Context?, val CaneList: ArrayList<Cane>, val arri
 
             recordRazza?.text = cane.razza
             recordSesso?.text = cane.sesso
-            recordNome?.text  = cane.nome_collare
-
-
+            recordNome?.text=cane.nome_collare
 
 
 
             val indirizzo :String? = cane.profileImageUrl
-
-
+            val rit_smarr :String = cane.rit_smarr
 
             if (indirizzo!!.trim().isNotEmpty())
             {
