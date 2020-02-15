@@ -17,6 +17,10 @@ import kotlinx.android.synthetic.main.fragment_registration.*
 
 class HomeFragment : Fragment()
 {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        this.setHasOptionsMenu(true)
+    }
     private var GoogleSignInClient : GoogleSignInClient ? = null
 
     override fun onCreateView(
@@ -32,22 +36,32 @@ class HomeFragment : Fragment()
         super.onViewCreated(view, savedInstanceState)
 
         Bottone_Smarrimento.setOnClickListener {
-            Passaggio("smarrito")
-            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_trovatoFragment)
+            if (logged=="Y")
+            {
+                Passaggio("smarriti")
+                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_trovatoFragment)
+            }
+            else
+                Passaggio("smarriti")
+                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_registration)
 
         }
 
 
         Bottone_Ritrovamento.setOnClickListener {
 
-            val currentUser = FirebaseAuth.getInstance().currentUser
+            if (Logged("LOGGED", "", "", "", "", "", "", "", "", "") == "Y")
+            {
+                Passaggio("trovati")
+                Navigation.findNavController(view)
+                    .navigate(R.id.action_homeFragment_to_trovatoFragment)
+            }
 
-            if (currentUser!=null)
-            {   Passaggio("trovato")
-                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_trovatoFragment) }
-
-            else
-                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_registration)
+            else {
+                Passaggio("trovati")
+                Navigation.findNavController(view)
+                    .navigate(R.id.action_homeFragment_to_registration)
+            }
         }
 
         Bottone_ListRitrovamento.setOnClickListener {
@@ -73,6 +87,99 @@ class HomeFragment : Fragment()
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater?)
+    {
+        Log.d("MENUOPT","ENTRO IN OnCreateOptionMenu")
+        inflater!!.inflate(R.menu.main_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean
+    {
+
+
+        //get item id to handle item clicks
+        val id = item!!.itemId
+        //handle item clicks
+
+
+
+        if (id == R.id.Login_Item)
+        {
+            //do your action here, im just showing toast
+            Toast.makeText(context, "LOGIN", Toast.LENGTH_SHORT).show()
+            Navigation.findNavController(view!!).navigate(R.id.action_homeFragment_to_registration)
+
+
+        }
+
+        if (id == R.id.SignIn_Item)
+        {
+            //do your action here, im just showing toast
+            Navigation.findNavController(view!!).navigate(R.id.action_homeFragment_to_creaUserFragment)
+
+
+        }
+
+        if (id == R.id.Profilo_Item)
+        {
+            //do your action here, im just showing toast
+            Navigation.findNavController(view!!).navigate(R.id.action_homeFragment_to_profiloFragment)
+
+
+        }
+
+        if (id == R.id.Logout_Item)
+        {
+            Logged("LOGOUT","","","","","","","","","")
+
+        }
+
+
+
+
+        return super.onOptionsItemSelected(item)
+    }
+
+
+
+    override fun onPrepareOptionsMenu(menu: Menu?) {
+        super.onPrepareOptionsMenu(menu)
+
+
+
+        if (logged=="Y")
+        {
+            menu!!.findItem(R.id.Login_Item).isVisible = false
+            menu.findItem(R.id.SignIn_Item).isVisible = false
+            menu.findItem(R.id.Profilo_Item).isVisible = true
+            menu.findItem(R.id.Logout_Item).isVisible = true
+            menu.findItem(R.id.Impostazioni_Item).isVisible = true
+            menu.findItem(R.id.Home_Item).isVisible = false
+        }
+
+        else
+        {
+            menu!!.findItem(R.id.Login_Item).isVisible = true
+            menu.findItem(R.id.SignIn_Item).isVisible = true
+            menu.findItem(R.id.Profilo_Item).isVisible = false
+            menu.findItem(R.id.Logout_Item).isVisible = false
+
+        }
+
+        menu.findItem(R.id.Impostazioni_Item).isVisible = true
+        menu.findItem(R.id.Home_Item).isVisible = false
+
+
+
+
+
+
+
+
+    }
 
 
 

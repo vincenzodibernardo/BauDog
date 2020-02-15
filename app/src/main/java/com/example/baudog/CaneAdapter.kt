@@ -12,7 +12,7 @@ import android.widget.TextView
 import androidx.navigation.Navigation
 import com.squareup.picasso.Picasso
 
-class CaneAdapter(val context: Context?, val CaneList: ArrayList<Cane>, val arrivo:String) : RecyclerView.Adapter<CaneAdapter.Holder>()
+class CaneAdapter(val context: Context?, val CaneList: ArrayList<Cane>) : RecyclerView.Adapter<CaneAdapter.Holder>()
 {
 
     override fun onBindViewHolder(holder: Holder, position: Int)
@@ -27,12 +27,8 @@ class CaneAdapter(val context: Context?, val CaneList: ArrayList<Cane>, val arri
             val b = Bundle()
             b.putParcelable("cane", cane)     //TODO: Il nome dell'ogggetto andrebbe inserito in un solo punto!!
 
+            Navigation.findNavController(it).navigate(R.id.action_ListTrovatoFragment_to_infoCane, b)
 
-            if(arrivo=="Trovato")
-                Navigation.findNavController(it).navigate(R.id.action_ListTrovatoFragment_to_infoCane, b)
-
-            if (arrivo=="Smarrito")
-                Navigation.findNavController(it).navigate(R.id.action_ListTrovatoFragment_to_infoCane, b)
 
         }
 
@@ -57,7 +53,6 @@ class CaneAdapter(val context: Context?, val CaneList: ArrayList<Cane>, val arri
         val recordSesso = view?.findViewById<TextView>(R.id.textView_showSesso)
         var recordImage = view?.findViewById<ImageView>(R.id.imageView_showCane)
         val recordNome = view?.findViewById<TextView>(R.id.textView_showNome)
-        val constraint = view?.findViewById<ConstraintLayout>(R.id.Constraint_Riga)
 
         fun bind(cane: Cane, context: Context)
         {
@@ -84,7 +79,7 @@ class CaneAdapter(val context: Context?, val CaneList: ArrayList<Cane>, val arri
 
 
 
-            if (indirizzo!!.trim().isEmpty())
+            if (indirizzo.trim().isEmpty())
             {
                 recordImage!!.setImageResource(R.drawable.prova1)
             }

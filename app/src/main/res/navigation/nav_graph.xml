@@ -9,31 +9,55 @@
         <action
             android:id="@+id/action_homeFragment_to_ListTrovatoFragment"
             app:destination="@+id/ListTrovatoFragment" />
+
         <action android:id="@+id/action_homeFragment_to_trovatoFragment" app:destination="@id/trovatoFragment"/>
+
         <action
             android:id="@+id/action_homeFragment_to_registration"
             app:destination="@id/registration" />
         <action
-            android:id="@+id/action_homeFragment_to_profiloFragment"
-            app:destination="@+id/profiloFragment" />
+            android:id="@+id/action_homeFragment_to_creaUserFragment"
+            app:destination="@id/creaUserFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_listSmarritiFragment"
-            app:destination="@id/listSmarritiFragment" />
+            android:id="@+id/action_homeFragment_to_profiloFragment"
+            app:destination="@id/profiloFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/ListTrovatoFragment"
         android:name="com.example.baudog.ListTrovatoFragment"
         android:label="fragment_ListTrovato"
-        tools:layout="@layout/fragment_ListRitrovamento" >
+        tools:layout="@layout/fragment_list_ritrovamento" >
         <action
             android:id="@+id/action_ListTrovatoFragment_to_infoCane"
             app:destination="@id/infoCane" />
+        <action
+            android:id="@+id/action_ListTrovatoFragment_to_registration"
+            app:destination="@id/registration" />
+        <action
+            android:id="@+id/action_ListTrovatoFragment_to_creaUserFragment"
+            app:destination="@id/creaUserFragment" />
+        <action
+            android:id="@+id/action_ListTrovatoFragment_to_profiloFragment"
+            app:destination="@id/profiloFragment" />
+        <action
+            android:id="@+id/action_ListTrovatoFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment android:id="@+id/trovatoFragment" android:name="com.example.baudog.TrovatoFragment"
               android:label="fragment_trovato" tools:layout="@layout/fragment_trovato">
         <action
             android:id="@+id/action_trovatoFragment_to_ListTrovatoFragment"
             app:destination="@id/ListTrovatoFragment" />
+        <action
+            android:id="@+id/action_trovatoFragment_to_profiloFragment"
+            app:destination="@+id/profiloFragment" />
+        <action
+            android:id="@+id/action_trovatoFragment_to_registration"
+            app:destination="@id/registration" />
+        <action
+            android:id="@+id/action_trovatoFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/registration"
@@ -43,17 +67,51 @@
         <action
             android:id="@+id/action_registration_to_trovatoFragment"
             app:destination="@id/trovatoFragment" />
+        <action
+            android:id="@+id/action_registration_to_creaUserFragment"
+            app:destination="@id/creaUserFragment" />
+        <action
+            android:id="@+id/action_registration_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoCane"
+        android:name="com.example.baudog.InfoCane"
+        android:label="InfoCane" >
+        <action
+            android:id="@+id/action_infoCane_to_profiloFragment"
+            app:destination="@id/profiloFragment" />
+        <action
+            android:id="@+id/action_infoCane_to_registration"
+            app:destination="@id/registration" />
+        <action
+            android:id="@+id/action_infoCane_to_creaUserFragment"
+            app:destination="@id/creaUserFragment" />
+        <action
+            android:id="@+id/action_infoCane_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/profiloFragment"
         android:name="com.example.baudog.ProfiloFragment"
-        android:label="ProfiloFragment" />
+        android:label="fragment_profilo"
+        tools:layout="@layout/fragment_profilo" >
+        <action
+            android:id="@+id/action_profiloFragment_to_registration"
+            app:destination="@id/registration" />
+        <action
+            android:id="@+id/action_profiloFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/listSmarritiFragment"
-        android:name="com.example.baudog.ListSmarritiFragment"
-        android:label="ListSmarritiFragment" />
-    <fragment
-        android:id="@+id/infoCane"
-        android:name="com.example.baudog.InfoCane"
-        android:label="InfoCane" />
+        android:id="@+id/creaUserFragment"
+        android:name="com.example.baudog.CreaUserFragment"
+        android:label="CreaUserFragment" >
+        <action
+            android:id="@+id/action_creaUserFragment_to_registration"
+            app:destination="@id/registration" />
+        <action
+            android:id="@+id/action_creaUserFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

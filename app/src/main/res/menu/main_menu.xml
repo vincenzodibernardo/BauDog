@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+
+    <item
+        android:id="@+id/Home_Item"
+        android:title="Home"
+        android:visible="true" />
     <item
         android:id="@+id/Profilo_Item"
         android:title="Profilo"
         android:visible="true"/>
-    <item
-        android:id="@+id/Impostazioni_Item"
-        android:title="Impostazioni"
-        android:visible="true"/>
+
     <item
         android:id="@+id/Login_Item"
         android:title="Login"
@@ -18,7 +20,13 @@
         android:title="Sign In"
         android:visible="true"/>
     <item
+    android:id="@+id/Impostazioni_Item"
+    android:title="Impostazioni"
+    android:visible="true"/>
+
+    <item
         android:id="@+id/Logout_Item"
         android:title="Logout"
         android:visible="true" />
+
 </menu>

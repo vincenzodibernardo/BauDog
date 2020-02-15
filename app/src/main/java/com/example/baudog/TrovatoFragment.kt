@@ -25,7 +25,6 @@ import java.util.*
 
 class TrovatoFragment : Fragment() {
 
-    private var GoogleSignInClient : GoogleSignInClient? = null
     private var chipValue: Boolean = true                               // IL CANE HA IL CHIP ?
     private var collareValue: Boolean = true                            // IL CANE HA IL COLLARE ?
     private var sesso: String = "Maschio"                               // M O F ?
@@ -35,6 +34,8 @@ class TrovatoFragment : Fragment() {
     private var firebaseStorage: FirebaseStorage? = null                //VARIABILE PER FIREBASE
     private var storageReference: StorageReference? = null              //VARIABILE PER FIREBASE
     private var selectedPhotoUri : Uri?=null                            //VARIABILE PER FIREBASE
+
+    private var smarr_trov : String = Passaggio("QUI")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,11 +100,13 @@ class TrovatoFragment : Fragment() {
 
 
         //BOTTONI SALVA E ANNULLA
-        button_Annulla.setOnClickListener {
+        button_AnnullaUser.setOnClickListener {
             Log.d("Debug 1", "ANNULLA: Hai premuto Annulla")
+
+            Toast.makeText(context,"CANE NON SALVATO", Toast.LENGTH_SHORT).show()
             Navigation.findNavController(it).navigateUp()
         }
-        button_Salva.setOnClickListener {
+        button_SalvaCane.setOnClickListener {
             Log.d("Debug 1", "SALVA: Hai premuto SALVA")
             if (campiValidi())
             {
@@ -136,16 +139,15 @@ class TrovatoFragment : Fragment() {
         }
 
 
-
-
-
-
-
         //CARICA FOTO DA GALLERIA
         Bottone_CaricaFoto.setOnClickListener {
             Log.d("Debug 1", " FOTO : Hai premuto Galleria Immagine")
             galleriaImmagine()
         }
+
+        //EDIT TROVATO/SMARRITO
+        if (smarr_trov=="trovati"){textView_Trovato.text="TROVATO"}
+        if (smarr_trov=="smarriti"){textView_Trovato.text="SMARRITO"}
 
 
         firebaseStorage = FirebaseStorage.getInstance()
@@ -191,13 +193,10 @@ class TrovatoFragment : Fragment() {
         else
         {
             val filename=UUID.randomUUID().toString()
-            val ref = FirebaseStorage.getInstance().getReference("/images/$filename")
+            val ref = FirebaseStorage.getInstance().getReference("/images/cani/$filename")
             ref.putFile(selectedPhotoUri!!).addOnSuccessListener {
 
                 ref.downloadUrl.addOnSuccessListener {
-
-                    Log.d("Controllo","$it")
-                    Log.d("Controllo2","$ref")
 
                     salvaCane(it.toString())
                 }
@@ -206,7 +205,7 @@ class TrovatoFragment : Fragment() {
 
 
 
-    }
+        }
     }
 
 
@@ -262,11 +261,8 @@ class TrovatoFragment : Fragment() {
 
         val db_ProfileImageUrl:String?=profileImageUrl.toString()
 
-        val db_Rit_Smarr =  "Trovato"
+        val ref = FirebaseDatabase.getInstance().getReference("cani/$smarr_trov")
 
-
-
-        val ref = FirebaseDatabase.getInstance().getReference("cani/smarriti")
         val db_caneID: String = ref.push().key.toString()
 
 
@@ -288,7 +284,7 @@ class TrovatoFragment : Fragment() {
         ref.child(db_caneID).setValue(cane)
             .addOnCompleteListener {
 
-                Toast.makeText(activity, "SALVATO", Toast.LENGTH_LONG).show()
+                Toast.makeText(activity, "SALVATO CON SUCCESSO", Toast.LENGTH_SHORT).show()
                 Navigation.findNavController(view!!).navigate(R.id.action_trovatoFragment_to_ListTrovatoFragment)
             }
 
@@ -312,48 +308,28 @@ class TrovatoFragment : Fragment() {
         //handle item clicks
         if (id == R.id.Logout_Item)
         {
-            logout()
-            Navigation.findNavController(view!!).navigateUp()
+           Logged("LOGOUT","","","","","","","","","")
+            Navigation.findNavController(view!!).navigate(R.id.action_trovatoFragment_to_registration)
 
         }
         if (id == R.id.Profilo_Item)
         {
             //do your action here, im just showing toast
             Toast.makeText(context, "PROFILO", Toast.LENGTH_SHORT).show()
+            Navigation.findNavController(view!!).navigate(R.id.action_trovatoFragment_to_profiloFragment)
 
         }
 
-        if (id == R.id.Login_Item)
+        if (id == R.id.Home_Item)
         {
             //do your action here, im just showing toast
-            Toast.makeText(context, "LOGIN", Toast.LENGTH_SHORT).show()
-            textView_Login.visibility = View.VISIBLE
-            textView_SignIn.visibility=View.INVISIBLE
 
-            button_LoginUserPassword.visibility=View.VISIBLE
-            button_LoginFacebook.visibility=View.VISIBLE
-            button_LoginGoogle.visibility=View.VISIBLE
+            Navigation.findNavController(view!!).navigate(R.id.action_trovatoFragment_to_homeFragment)
 
-            button_Google.visibility=View.GONE
-            button_Facebook.visibility=View.GONE
-            button_submit.visibility=View.GONE
         }
 
-        if (id == R.id.SignIn_Item)
-        {
-            //do your action here, im just showing toast
-            Toast.makeText(context, "SIGN IN", Toast.LENGTH_SHORT).show()
-            textView_Login.visibility = View.INVISIBLE
-            textView_SignIn.visibility=View.VISIBLE
 
-            button_LoginUserPassword.visibility=View.GONE
-            button_LoginFacebook.visibility=View.GONE
-            button_LoginGoogle.visibility=View.GONE
 
-            button_Google.visibility=View.VISIBLE
-            button_Facebook.visibility=View.VISIBLE
-            button_submit.visibility=View.VISIBLE
-        }
 
         return super.onOptionsItemSelected(item)
     }
@@ -361,45 +337,23 @@ class TrovatoFragment : Fragment() {
     override fun onPrepareOptionsMenu(menu: Menu?) {
         super.onPrepareOptionsMenu(menu)
 
-        val currentUser = FirebaseAuth.getInstance().currentUser
 
-        if (currentUser!=null)
-        {
+
             menu!!.findItem(R.id.Login_Item).isVisible=false
             menu.findItem(R.id.SignIn_Item).isVisible=false
             menu.findItem(R.id.Profilo_Item).isVisible=true
             menu.findItem(R.id.Logout_Item).isVisible=true
+            menu.findItem(R.id.Home_Item).isVisible=true
 
 
-        }
 
-        else
-        {
-            menu!!.findItem(R.id.Login_Item).isVisible=true
-            menu.findItem(R.id.SignIn_Item).isVisible=true
-            menu.findItem(R.id.Profilo_Item).isVisible=false
-            menu.findItem(R.id.Logout_Item).isVisible=false
-        }
+
 
 
     }
 
 
-    private fun logout()
-    {
-        //LOGOUT SIMPLE
-        FirebaseAuth.getInstance().signOut()
 
-
-        //LOGOUT GOOGLE
-        GoogleSignInClient?.signOut()
-
-        //LOGOUT FACEBOOK
-        LoginManager.getInstance().logOut()
-
-
-        Toast.makeText(context, "LOGOUT", Toast.LENGTH_SHORT).show()
-    }
 
 }
 

@@ -26,21 +26,22 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+            app:layout_constraintCircleRadius="30dp"
             android:id="@+id/UriImage"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/textView_ViewNome"
+            app:layout_constraintStart_toStartOf="@+id/textView_InfoNome"
             app:layout_constraintTop_toBottomOf="@+id/textView4"
-            tools:src="@tools:sample/avatars[0]" />
+            tools:src="@drawable/prova1" />
 
         <TextView
             android:id="@+id/textView_InfoNome"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/arial_rounded_bold"
             android:text="Nome : "
             android:textColor="@color/endblue"

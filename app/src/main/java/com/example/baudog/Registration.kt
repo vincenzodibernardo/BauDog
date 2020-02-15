@@ -24,6 +24,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.fragment_registration.*
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
@@ -33,15 +34,8 @@ import java.util.*
 class Registration : Fragment() {
 
 
-    private var GoogleSignInClient : GoogleSignInClient ? = null
 
-    var RC_SIGN_IN = 1000
-    var callbackManager = CallbackManager.Factory.create()
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.setHasOptionsMenu(true)
@@ -84,166 +78,43 @@ class Registration : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        textView_Registrati.setOnClickListener {
 
-        var gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build()
+            textView_Login.text = "SIGN IN"
 
-        GoogleSignInClient = GoogleSignIn.getClient(context!!,gso)
+            button_LoginUserPassword.visibility=View.GONE
+
+            editText_Username.error = null
+            editText_Password.error = null
+
+
+        }
+
+
+
 
 
         //USER & PASSWORD LOGIN/SIGNIN
-        button_submit.setOnClickListener {
-            if(Control())
-                createUser()
-        }
+
         button_LoginUserPassword.setOnClickListener {
 
             if(Control())
-                loginEmail()
+                Login(editText_Username.text.toString(),editText_Password.text.toString())
 
         }
 
-
-        //FACEBOOK LOGIN/SIGNIN
-        button_Google.setOnClickListener {
-
-            val signInIntent = GoogleSignInClient?.signInIntent
-            startActivityForResult(signInIntent,RC_SIGN_IN)
-        }
-        button_LoginGoogle.setOnClickListener {
-
-            val signInIntent = GoogleSignInClient?.signInIntent
-            startActivityForResult(signInIntent,RC_SIGN_IN) }
-
-        //FACEBOOK LOGIN/SIGNIN
-        button_Facebook.setOnClickListener { FacebookLogin() }
-        button_LoginFacebook.setOnClickListener { FacebookLogin() }
 
 
         printHashKey(context!!)
 
 
+        textView_Registrati.setOnClickListener { Navigation.findNavController(view).navigate(R.id.action_registration_to_creaUserFragment) }
+
+
     }
 
 
 
-
-
-
-
-    private fun createUser()
-    {
-        var email = editText_Username.text.toString()
-        var password = editText_Password.text.toString()
-
-        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password).addOnCompleteListener { task ->
-            if (task.isSuccessful)
-                Toast.makeText(context,"Utente Registrato",Toast.LENGTH_LONG).show()
-
-        }
-
-    }
-
-
-    private fun loginEmail()
-    {
-        var email = editText_Username.text.toString()
-        var password = editText_Password.text.toString()
-
-        FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password).addOnCompleteListener { task ->
-            if (task.isSuccessful)
-            {
-                Toast.makeText(context,"LOGIN EFFETTUATO",Toast.LENGTH_LONG).show()
-                Navigation.findNavController(view!!).navigate(R.id.action_registration_to_trovatoFragment)
-
-            }
-
-            if (task.isCanceled)
-            {
-                Toast.makeText(context,"ERRORE: RIPROVA TRA POCO",Toast.LENGTH_LONG).show()
-            }
-        }
-
-    }
-
-
-    private fun FirebaseAuthWithGoogle(acct:GoogleSignInAccount) {
-        val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
-        FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-
-                Toast.makeText(context!!, "Utente Registrato", Toast.LENGTH_LONG).show()
-
-
-                Navigation.findNavController(view!!)
-                    .navigate(R.id.action_registration_to_trovatoFragment)
-
-
-            }
-        }
-    }
-
-
-    private fun FacebookLogin()
-    {
-        LoginManager.getInstance().loginBehavior = LoginBehavior.WEB_VIEW_ONLY
-        LoginManager.getInstance().logInWithReadPermissions(this,Arrays.asList("email","public_profile"))
-        LoginManager.getInstance().registerCallback(callbackManager, object : FacebookCallback<LoginResult>{
-            override fun onSuccess(result: LoginResult?)
-            {
-                FirebaseAuthWithFacebook(result)
-                Log.d("DIBERNARDO1", "OK1")
-            }
-
-            override fun onCancel() {
-                Log.d("DIBERNARDO1", "ERRORE 3")
-
-            }
-
-            override fun onError(error: FacebookException?)
-            {
-                Log.d("DIBERNARDO1", "ERRORE 4")
-            }
-
-
-        })
-    }
-
-    private fun FirebaseAuthWithFacebook(result: LoginResult?)
-    {
-        val credential = FacebookAuthProvider.getCredential(result?.accessToken?.token!!)
-        FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener { task ->
-            if (task.isSuccessful)
-            {
-                Toast.makeText(context!!,"Utente Registrato",Toast.LENGTH_LONG).show()
-                Navigation.findNavController(view!!).navigate(R.id.action_registration_to_trovatoFragment)
-            }
-
-            if (task.isCanceled)
-                Toast.makeText(context!!,"Utente NON Registrato",Toast.LENGTH_LONG).show()
-        }
-    }
-
-
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        callbackManager.onActivityResult(requestCode,resultCode,data)
-
-         Log.d("DIBERNARDO1", "OK FORSE")
-
-        if (requestCode==RC_SIGN_IN)
-        {
-            var task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            var account= task.getResult(ApiException::class.java)
-            FirebaseAuthWithGoogle(account!!)
-
-            Log.d("DIBERNARDO1", "ERRORE 6")
-        }
-
-    }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater?)
     {
@@ -257,21 +128,7 @@ class Registration : Fragment() {
 
 
 
-    private fun logout()
-    {
-        //LOGOUT SIMPLE
-        FirebaseAuth.getInstance().signOut()
 
-
-        //LOGOUT GOOGLE
-        GoogleSignInClient?.signOut()
-
-        //LOGOUT FACEBOOK
-        LoginManager.getInstance().logOut()
-
-
-        Toast.makeText(context, "LOGOUT", Toast.LENGTH_SHORT).show()
-    }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean
     {
@@ -281,56 +138,18 @@ class Registration : Fragment() {
         val id = item!!.itemId
 
         //handle item clicks
-        if (id == R.id.Logout_Item)
-        {
-            logout()
-            Navigation.findNavController(view!!).navigateUp()
-
-        }
-        if (id == R.id.Profilo_Item)
-        {
-
-            Toast.makeText(context, "PROFILO", Toast.LENGTH_SHORT).show()
-
-        }
-
-        if (id == R.id.Login_Item)
-        {
-
-            Toast.makeText(context, "LOGIN ", Toast.LENGTH_SHORT).show()
-            textView_Login.visibility = View.VISIBLE
-            textView_SignIn.visibility=View.INVISIBLE
-
-            button_LoginUserPassword.visibility=View.VISIBLE
-            button_LoginFacebook.visibility=View.VISIBLE
-            button_LoginGoogle.visibility=View.VISIBLE
-
-            button_Google.visibility=View.GONE
-            button_Facebook.visibility=View.GONE
-            button_submit.visibility=View.GONE
-
-            editText_Username.error = null
-            editText_Password.error = null
-        }
 
         if (id == R.id.SignIn_Item)
         {
+            Navigation.findNavController(view!!).navigate(R.id.action_registration_to_creaUserFragment)
 
-            Toast.makeText(context, "LOGIN ", Toast.LENGTH_SHORT).show()
-            textView_Login.visibility = View.INVISIBLE
-            textView_SignIn.visibility=View.VISIBLE
-
-            button_LoginUserPassword.visibility=View.GONE
-            button_LoginFacebook.visibility=View.GONE
-            button_LoginGoogle.visibility=View.GONE
-
-            button_Google.visibility=View.VISIBLE
-            button_Facebook.visibility=View.VISIBLE
-            button_submit.visibility=View.VISIBLE
-
-            editText_Username.error = null
-            editText_Password.error = null
         }
+
+        if (id == R.id.Home_Item)
+        {
+            Navigation.findNavController(view!!).navigate(R.id.action_registration_to_homeFragment)
+        }
+        //AGGIUNGERE IMPOSTAZIONI
         return true
 
 
@@ -341,32 +160,23 @@ class Registration : Fragment() {
     override fun onPrepareOptionsMenu(menu: Menu?) {
         super.onPrepareOptionsMenu(menu)
 
-        val currentUser = FirebaseAuth.getInstance().currentUser
 
-        if (currentUser!=null)
-        {
             menu!!.findItem(R.id.Login_Item).isVisible=false
-            menu.findItem(R.id.SignIn_Item).isVisible=false
-            menu.findItem(R.id.Profilo_Item).isVisible=true
-            menu.findItem(R.id.Logout_Item).isVisible=true
-
-
-        }
-
-        else
-        {
-            menu!!.findItem(R.id.Login_Item).isVisible=true
             menu.findItem(R.id.SignIn_Item).isVisible=true
             menu.findItem(R.id.Profilo_Item).isVisible=false
             menu.findItem(R.id.Logout_Item).isVisible=false
-        }
+            menu.findItem(R.id.Home_Item).isVisible=true
+
+
+        //AGGIUNGERE IMPOSTAZIONI
+
 
 
     }
 
     private fun Control():Boolean
     {
-        var errore : Boolean = false
+        var errore  = false
 
         if (editText_Username.text.toString().trim().isEmpty()) {
             editText_Username.error = "Riempire il campo \'Username\'"
@@ -388,6 +198,56 @@ class Registration : Fragment() {
         return true
 
     }
+
+    private fun Login(username : String, password :String)
+    {
+        val ref = FirebaseDatabase.getInstance().getReference("User/")
+
+        ref.addValueEventListener(object : ValueEventListener
+        {
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+
+            override fun onDataChange(p0: DataSnapshot) {
+
+                    if (p0.exists())
+                    {
+                        for (h in p0.children)
+                        {
+                            val user: User? = h.getValue(User::class.java)
+                                if (username == user?.username)
+                                {
+                                    if (user.password == password)
+                                    {
+                                        Toast.makeText(activity, "Login Success", Toast.LENGTH_SHORT).show()
+                                        Logged("LOGIN",user.nome,user.cognome,user.sesso,user.eta,user.email,user.username, user.cellulare,user.ID,user.uriImage)
+
+                                        if(Passaggio("QUI")=="smarriti"||Passaggio("QUI")=="trovati")
+                                            Navigation.findNavController(view!!).navigate(R.id.action_registration_to_trovatoFragment)
+                                        break
+
+                                    } else
+                                        Toast.makeText(activity, "Password Incorrect", Toast.LENGTH_SHORT).show()
+                                }
+                                else
+                                    Toast.makeText(activity, "User not registred", Toast.LENGTH_SHORT).show()
+
+                        }
+
+
+                    }
+
+                }
+            })
+
+    }
+
+
+
+
+
 
 
 

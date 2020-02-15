@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <android.support.constraint.ConstraintLayout
+
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_background"
+        tools:context=".ProfiloFragment">
+
+        <Button
+
+            android:id="@+id/button_CreaUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/bottone_white"
+            android:drawableLeft="@drawable/ic_person_add_black_24dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="40dp"
+            android:text="CREA USER"
+            android:textColor="#00AEF4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button_AnnullaUser"
+            app:layout_constraintTop_toBottomOf="@+id/editText_RipPaswordCrea"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/button_AnnullaUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bottone_white"
+            android:drawableLeft="@drawable/ic_annulla_button"
+            android:paddingLeft="20dp"
+            android:paddingRight="40dp"
+            android:text="Annulla"
+            android:textColor="#00AEF4"
+            app:layout_constraintBottom_toBottomOf="@+id/button_CreaUser"
+            app:layout_constraintEnd_toStartOf="@+id/button_CreaUser"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/button_CreaUser" />
+
+        <RadioGroup
+            android:id="@+id/RadioGroup_Sesso"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewSesso">
+
+            <RadioButton
+                android:id="@+id/radioButton_Maschio"
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:checked="true"
+                android:fontFamily="@font/arial_rounded_bold"
+                android:paddingLeft="10dp"
+                android:text="MASCHIO"
+                android:textColor="@color/endblue"
+                android:textSize="24sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton_Femmina"
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/arial_rounded_bold"
+                android:paddingLeft="10dp"
+                android:text="FEMMINA"
+                android:textColor="@color/endblue"
+                android:textSize="24sp" />
+        </RadioGroup>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView_Profilo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/com_facebook_profile_picture_blank_portrait"
+            app:civ_border_color="@color/endblue"
+            app:civ_border_width="3dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewNome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="Nome :"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/circleImageView_Profilo" />
+
+        <TextView
+            android:id="@+id/textViewCognome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="Cognome :"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_NomeCrea" />
+
+        <TextView
+            android:id="@+id/textViewEta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="Età :"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/RadioGroup_Sesso" />
+
+        <TextView
+            android:id="@+id/textViewEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="Email :"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_CellulareCrea" />
+
+        <TextView
+            android:id="@+id/textViewSesso"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="Sesso :"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_CognomeCrea" />
+
+        <TextView
+            android:id="@+id/textViewCellulare"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="Cellulare :"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_EtaCrea" />
+
+        <EditText
+            android:id="@+id/editText_NomeCrea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:hint="Inserisci qui il tuo nome..."
+            android:inputType="textPersonName"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewNome" />
+
+        <EditText
+            android:id="@+id/editText_CognomeCrea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:hint="Inserisci qui il tuo cognome..."
+            android:inputType="textPersonName"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCognome" />
+
+        <EditText
+            android:id="@+id/editText_EtaCrea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:hint="Inserisci qui la tua età..."
+            android:inputType="number"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewEta" />
+
+        <EditText
+            android:id="@+id/editText_EmailCrea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:hint="Esempio@example.com"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
+
+        <EditText
+            android:id="@+id/editText_CellulareCrea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:hint="+39 333 3333333"
+            android:inputType="phone"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCellulare" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="148dp" />
+
+        <TextView
+            android:id="@+id/textViewEmail2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="Password :"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_UsernameCrea" />
+
+        <EditText
+            android:id="@+id/editText_PasswordCrea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:hint="Password..."
+            android:inputType="textPassword"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewEmail2" />
+
+        <EditText
+            android:id="@+id/editText_RipPaswordCrea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:hint="Ripeti Password..."
+            android:inputType="textPassword"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_PasswordCrea" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="Username :"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_EmailCrea" />
+
+        <EditText
+            android:id="@+id/editText_UsernameCrea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:hint="Inserici il tuo Username..."
+            android:inputType="textPersonName"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

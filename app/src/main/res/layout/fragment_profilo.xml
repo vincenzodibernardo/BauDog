@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <android.support.constraint.ConstraintLayout
+
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_background"
+        tools:context=".ProfiloFragment">
+
+        <RadioGroup
+            android:id="@+id/RadioGroup_Sesso"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_ShowSesso"
+            app:layout_constraintEnd_toEndOf="@+id/textView_ShowSesso"
+            app:layout_constraintStart_toStartOf="@+id/textView_ShowSesso"
+            app:layout_constraintTop_toTopOf="@+id/textView_ShowSesso"
+            app:layout_constraintVertical_bias="0.39">
+
+            <RadioButton
+                android:id="@+id/radioButton_Maschio"
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:checked="true"
+                android:fontFamily="@font/arial_rounded_bold"
+                android:text="MASCHIO"
+                android:textColor="@color/endblue"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton_Femmina"
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/arial_rounded_bold"
+                android:text="FEMMINA"
+                android:textColor="@color/endblue"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView_Profilo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/com_facebook_profile_picture_blank_portrait"
+            app:civ_border_color="@color/endblue"
+            app:civ_border_width="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewNome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="Nome :"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/circleImageView_Profilo" />
+
+        <TextView
+            android:id="@+id/textViewCognome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="Cognome :"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_ShowNome" />
+
+        <TextView
+            android:id="@+id/textViewEta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="Età :"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_ShowSesso" />
+
+        <TextView
+            android:id="@+id/textViewEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="Email :"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_ShowEta" />
+
+        <TextView
+            android:id="@+id/textViewSesso"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="Sesso :"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_ShowCognome" />
+
+        <TextView
+            android:id="@+id/textViewCellulare"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="Cellulare :"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_ShowEmail" />
+
+        <TextView
+            android:id="@+id/textView_ShowNome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/Null"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewNome" />
+
+        <TextView
+            android:id="@+id/textView_ShowCognome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/Null"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCognome" />
+
+        <TextView
+            android:id="@+id/textView_ShowSesso"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/Null"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewSesso" />
+
+        <TextView
+            android:id="@+id/textView_ShowEta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/Null"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewEta" />
+
+        <TextView
+            android:id="@+id/textView_ShowEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/Null"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
+
+        <TextView
+            android:id="@+id/textView_ShowCellulare"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/Null"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCellulare" />
+
+        <TextView
+            android:id="@+id/textViewID"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="ID :"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_ShowCellulare" />
+
+        <TextView
+            android:id="@+id/textView_ShowID"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/Null"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewID" />
+
+        <TextView
+            android:id="@+id/textViewModProfilo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:drawableRight="@drawable/ic_edit_black_24dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:paddingLeft="0dp"
+            android:paddingRight="20dp"
+            android:text="Modifica Profilo "
+            android:textColor="#00AEF4"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_ShowID" />
+
+        <Button
+            android:id="@+id/button_Logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/bottone_white"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="Logout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_Impostazioni" />
+
+        <Button
+            android:id="@+id/button_Impostazioni"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bottone_white"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="IMPOSTAZIONI"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_MieiCani" />
+
+        <Button
+            android:id="@+id/button_MieiCani"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bottone_white"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="I MIEI CANI"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonANNULLA" />
+
+        <EditText
+            android:id="@+id/editText_NomeCrea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:visibility="gone"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_ShowNome"
+            app:layout_constraintEnd_toEndOf="@+id/textView_ShowNome"
+            app:layout_constraintStart_toStartOf="@+id/textView_ShowNome"
+            app:layout_constraintTop_toTopOf="@+id/textView_ShowNome" />
+
+        <EditText
+            android:id="@+id/editText_CognomeCrea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:visibility="gone"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_ShowCognome"
+            app:layout_constraintEnd_toEndOf="@+id/textView_ShowCognome"
+            app:layout_constraintStart_toStartOf="@+id/textView_ShowCognome"
+            app:layout_constraintTop_toTopOf="@+id/textView_ShowCognome" />
+
+        <EditText
+            android:id="@+id/editText_EtaCrea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:visibility="gone"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_ShowEta"
+            app:layout_constraintEnd_toEndOf="@+id/textView_ShowEta"
+            app:layout_constraintStart_toStartOf="@+id/textView_ShowEta"
+            app:layout_constraintTop_toTopOf="@+id/textView_ShowEta" />
+
+        <EditText
+            android:id="@+id/editText_EmailCrea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:visibility="gone"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_ShowEmail"
+            app:layout_constraintEnd_toEndOf="@+id/textView_ShowEmail"
+            app:layout_constraintStart_toStartOf="@+id/textView_ShowEmail"
+            app:layout_constraintTop_toTopOf="@+id/textView_ShowEmail" />
+
+        <EditText
+            android:id="@+id/editText_CellulareCrea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            android:visibility="gone"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_ShowCellulare"
+            app:layout_constraintEnd_toEndOf="@+id/textView_ShowCellulare"
+            app:layout_constraintStart_toStartOf="@+id/textView_ShowCellulare"
+            app:layout_constraintTop_toTopOf="@+id/textView_ShowCellulare" />
+
+        <Button
+            android:id="@+id/buttonANNULLA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/annulla"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@+id/buttonSALVA"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewModProfilo" />
+
+        <Button
+            android:id="@+id/buttonSALVA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SALVA"
+            android:visibility="gone"
+            app:layout_constraintBaseline_toBaselineOf="@+id/buttonANNULLA"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/buttonANNULLA" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
