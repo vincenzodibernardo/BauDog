@@ -10,8 +10,6 @@ import android.widget.Toast
 import androidx.navigation.Navigation
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.fragment_list_ritrovamento.*
-import kotlinx.android.synthetic.main.fragment_registration.*
-import kotlin.math.log
 
 
 class ListTrovatoFragment : Fragment() {
@@ -177,7 +175,6 @@ class ListTrovatoFragment : Fragment() {
             menu.findItem(R.id.Logout_Item).isVisible=false
         }
 
-        menu.findItem(R.id.Impostazioni_Item).isVisible=true
         menu.findItem(R.id.Home_Item).isVisible=true
 
     }

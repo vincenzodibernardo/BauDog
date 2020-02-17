@@ -396,7 +396,7 @@
             app:layout_constraintTop_toBottomOf="@+id/button_MieiCaniTrovati" />
 
         <EditText
-            android:id="@+id/editText_NomeCrea"
+            android:id="@+id/editText_NomeCreaProfilo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -411,7 +411,7 @@
             app:layout_constraintTop_toTopOf="@+id/textView_ShowNome" />
 
         <EditText
-            android:id="@+id/editText_CognomeCrea"
+            android:id="@+id/editText_CognomeCreaProfilo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -426,7 +426,7 @@
             app:layout_constraintTop_toTopOf="@+id/textView_ShowCognome" />
 
         <EditText
-            android:id="@+id/editText_EtaCrea"
+            android:id="@+id/editText_EtaCreaProfilo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -441,7 +441,7 @@
             app:layout_constraintTop_toTopOf="@+id/textView_ShowEta" />
 
         <EditText
-            android:id="@+id/editText_EmailCrea"
+            android:id="@+id/editText_EmailCreaProfilo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -456,7 +456,7 @@
             app:layout_constraintTop_toTopOf="@+id/textView_ShowEmail" />
 
         <EditText
-            android:id="@+id/editText_CellulareCrea"
+            android:id="@+id/editText_CellulareCreaProfilo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -500,7 +500,7 @@
             app:layout_constraintStart_toEndOf="@+id/buttonANNULLA" />
 
         <EditText
-            android:id="@+id/editText_UsernameCrea"
+            android:id="@+id/editText_UsernameCreaProfilo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"

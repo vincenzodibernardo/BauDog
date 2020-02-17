@@ -13,15 +13,7 @@ import androidx.navigation.Navigation
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_info_mio_cane.*
 import kotlinx.android.synthetic.main.fragment_profilo.*
-import kotlinx.android.synthetic.main.fragment_profilo.circleImageView_Profilo
-import kotlinx.android.synthetic.main.fragment_profilo.editText_CellulareCrea
-import kotlinx.android.synthetic.main.fragment_profilo.editText_CognomeCrea
-import kotlinx.android.synthetic.main.fragment_profilo.editText_EmailCrea
-import kotlinx.android.synthetic.main.fragment_profilo.editText_EtaCrea
-import kotlinx.android.synthetic.main.fragment_profilo.editText_NomeCrea
-import kotlinx.android.synthetic.main.fragment_profilo.editText_UsernameCrea
 import java.util.*
 
 
@@ -170,7 +162,6 @@ class ProfiloFragment : Fragment() {
             menu.findItem(R.id.SignIn_Item).isVisible=false
             menu.findItem(R.id.Profilo_Item).isVisible=false
             menu.findItem(R.id.Logout_Item).isVisible=true
-            menu.findItem(R.id.Impostazioni_Item).isVisible=true
             menu.findItem(R.id.Home_Item).isVisible=true
 
 
@@ -183,13 +174,13 @@ class ProfiloFragment : Fragment() {
    private fun modificaProfilo(imgUrl : String)
     {
         FirebaseDatabase.getInstance().getReference()
-        val mod_Nome        : String        =   editText_NomeCrea.text.toString()
-        val mod_Cognome     : String        =   editText_CognomeCrea.text.toString()
-        val mod_Eta         : String        =   editText_EtaCrea.text.toString()
+        val mod_Nome        : String        =   editText_NomeCreaProfilo.text.toString()
+        val mod_Cognome     : String        =   editText_CognomeCreaProfilo.text.toString()
+        val mod_Eta         : String        =   editText_EtaCreaProfilo.text.toString()
         var mod_Sesso       : String        =   ""
-        val mod_Email       : String        =   editText_EmailCrea.text.toString()
-        val mod_Cellulare   : String        =   editText_CellulareCrea.text.toString()
-        val mod_Username    : String        =   editText_UsernameCrea.text.toString()
+        val mod_Email       : String        =   editText_EmailCreaProfilo.text.toString()
+        val mod_Cellulare   : String        =   editText_CellulareCreaProfilo.text.toString()
+        val mod_Username    : String        =   editText_UsernameCreaProfilo.text.toString()
         val mod_UriImage    : String        =   imgUrl
 
         if (radioButton_MaschioProfilo.isChecked)
@@ -223,13 +214,13 @@ class ProfiloFragment : Fragment() {
         {
             clickImg=true
 
-            editText_NomeCrea.visibility = View.VISIBLE
-            editText_CognomeCrea.visibility = View.VISIBLE
-            editText_EtaCrea.visibility = View.VISIBLE
+            editText_NomeCreaProfilo.visibility = View.VISIBLE
+            editText_CognomeCreaProfilo.visibility = View.VISIBLE
+            editText_EtaCreaProfilo.visibility = View.VISIBLE
             RadioGroup_SessoProfilo.visibility = View.VISIBLE
-            editText_EmailCrea.visibility = View.VISIBLE
-            editText_CellulareCrea.visibility = View.VISIBLE
-            editText_UsernameCrea.visibility = View.VISIBLE
+            editText_EmailCreaProfilo.visibility = View.VISIBLE
+            editText_CellulareCreaProfilo.visibility = View.VISIBLE
+            editText_UsernameCreaProfilo.visibility = View.VISIBLE
 
             textView_ShowNome.visibility = View.INVISIBLE
             textView_ShowCognome.visibility = View.INVISIBLE
@@ -251,12 +242,12 @@ class ProfiloFragment : Fragment() {
             button_Impostazioni.visibility=View.INVISIBLE
             button_Logout.visibility=View.INVISIBLE
 
-            editText_NomeCrea.setText(textView_ShowNome.text.toString())
-            editText_CognomeCrea.setText(textView_ShowCognome.text.toString())
-            editText_EtaCrea.setText(textView_ShowEta.text.toString())
-            editText_EmailCrea.setText(textView_ShowEmail.text.toString())
-            editText_CellulareCrea.setText(textView_ShowCellulare.text.toString())
-            editText_UsernameCrea.setText(textView_ShowUsername.text.toString())
+            editText_NomeCreaProfilo.setText(textView_ShowNome.text.toString())
+            editText_CognomeCreaProfilo.setText(textView_ShowCognome.text.toString())
+            editText_EtaCreaProfilo.setText(textView_ShowEta.text.toString())
+            editText_EmailCreaProfilo.setText(textView_ShowEmail.text.toString())
+            editText_CellulareCreaProfilo.setText(textView_ShowCellulare.text.toString())
+            editText_UsernameCreaProfilo.setText(textView_ShowUsername.text.toString())
 
         }
 
@@ -264,13 +255,13 @@ class ProfiloFragment : Fragment() {
         {
             clickImg=false
 
-            editText_NomeCrea.visibility=View.INVISIBLE
-            editText_CognomeCrea.visibility=View.INVISIBLE
-            editText_EtaCrea.visibility=View.INVISIBLE
+            editText_NomeCreaProfilo.visibility=View.INVISIBLE
+            editText_CognomeCreaProfilo.visibility=View.INVISIBLE
+            editText_EtaCreaProfilo.visibility=View.INVISIBLE
             RadioGroup_SessoProfilo.visibility=View.INVISIBLE
-            editText_EmailCrea.visibility=View.INVISIBLE
-            editText_CellulareCrea.visibility=View.INVISIBLE
-            editText_UsernameCrea.visibility=View.INVISIBLE
+            editText_EmailCreaProfilo.visibility=View.INVISIBLE
+            editText_CellulareCreaProfilo.visibility=View.INVISIBLE
+            editText_UsernameCreaProfilo.visibility=View.INVISIBLE
 
             textView_ShowNome.visibility=View.VISIBLE
             textView_ShowCognome.visibility=View.VISIBLE

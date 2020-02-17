@@ -239,7 +239,6 @@ class InfoCane : Fragment() {
                 menu.findItem(R.id.Logout_Item).isVisible = false
             }
 
-            menu.findItem(R.id.Impostazioni_Item).isVisible = true
             menu.findItem(R.id.Home_Item).isVisible = true
 
         }

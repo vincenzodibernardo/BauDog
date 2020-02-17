@@ -19,10 +19,7 @@
         android:id="@+id/SignIn_Item"
         android:title="Sign In"
         android:visible="true"/>
-    <item
-    android:id="@+id/Impostazioni_Item"
-    android:title="Impostazioni"
-    android:visible="true"/>
+
 
     <item
         android:id="@+id/Logout_Item"

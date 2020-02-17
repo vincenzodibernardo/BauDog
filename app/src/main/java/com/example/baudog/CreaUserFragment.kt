@@ -14,10 +14,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_crea_user.*
-import kotlinx.android.synthetic.main.fragment_crea_user.radioButton_Femmina
-import kotlinx.android.synthetic.main.fragment_crea_user.radioButton_Maschio
-import kotlinx.android.synthetic.main.fragment_registration.*
-import java.text.NumberFormat
 import java.util.*
 
 
@@ -299,7 +295,6 @@ class CreaUserFragment : Fragment() {
             menu.findItem(R.id.SignIn_Item).isVisible=false
             menu.findItem(R.id.Profilo_Item).isVisible=false
             menu.findItem(R.id.Logout_Item).isVisible=false
-            menu.findItem(R.id.Impostazioni_Item).isVisible=true
             menu.findItem(R.id.Home_Item).isVisible=true
 
 

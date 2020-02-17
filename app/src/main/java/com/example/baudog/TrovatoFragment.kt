@@ -13,13 +13,9 @@ import android.view.*
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.navigation.Navigation
-import com.facebook.login.LoginManager
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import kotlinx.android.synthetic.main.fragment_registration.*
 import kotlinx.android.synthetic.main.fragment_trovato.*
 import java.util.*
 
@@ -104,7 +100,7 @@ class TrovatoFragment : Fragment() {
             Log.d("Debug 1", "ANNULLA: Hai premuto Annulla")
 
             Toast.makeText(context,"CANE NON SALVATO", Toast.LENGTH_SHORT).show()
-            Navigation.findNavController(it).navigateUp()
+            Navigation.findNavController(it).navigate(R.id.action_trovatoFragment_to_homeFragment)
         }
         button_SalvaCane.setOnClickListener {
             Log.d("Debug 1", "SALVA: Hai premuto SALVA")

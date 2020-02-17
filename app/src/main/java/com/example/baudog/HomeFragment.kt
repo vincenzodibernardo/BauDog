@@ -155,7 +155,7 @@ class HomeFragment : Fragment()
             menu.findItem(R.id.SignIn_Item).isVisible = false
             menu.findItem(R.id.Profilo_Item).isVisible = true
             menu.findItem(R.id.Logout_Item).isVisible = true
-            menu.findItem(R.id.Impostazioni_Item).isVisible = true
+
             menu.findItem(R.id.Home_Item).isVisible = false
         }
 
@@ -168,7 +168,7 @@ class HomeFragment : Fragment()
 
         }
 
-        menu.findItem(R.id.Impostazioni_Item).isVisible = true
+
         menu.findItem(R.id.Home_Item).isVisible = false
 
 
