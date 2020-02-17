@@ -1,7 +1,6 @@
 package com.example.baudog
 
 
-
 var uriImage    : String? = ""
 var Nome        : String? = ""
 var Cognome     : String? = ""
@@ -15,10 +14,7 @@ var Password    : String? = ""
 var logged      : String? = ""
 
 
-
-
-
-    fun Logged (    AZIONE          : String,
+fun Logged (    AZIONE          : String,
                     takeNome        : String?,
                     takeCognome     : String?,
                     takeSesso       : String?,
@@ -30,24 +26,41 @@ var logged      : String? = ""
                     takeUriImage    : String?,
                     takePassword    : String?) : String?
 {
+
+
     if(AZIONE=="LOGIN")
     {
 
 
+
+
+
         Nome        = takeNome
+
         Cognome     = takeCognome
+
         Sesso       = takeSesso
+
         Eta         = takeEta
+
         Email       = takeEmail
+
         Username    = takeUsername
+
         Cellulare   = takeCellulare
+
         Id          = takeId
 
-        if(takeUriImage!="") {uriImage    = takeUriImage}
-
+        if(takeUriImage!="") {
+            uriImage = takeUriImage
+        }
         Password    = takePassword
 
         logged      = "Y"
+
+
+
+
 
 
     }
@@ -56,20 +69,36 @@ var logged      : String? = ""
     {
 
 
+
         Nome        = ""
+
         Cognome     = ""
+
         Sesso       = ""
+
         Eta         = ""
+
         Email       = ""
+
         Username    = ""
+
         Cellulare   = ""
+
         Id          = ""
+
         uriImage    = ""
+
+        Password    = ""
 
         logged      = "N"
 
 
+
+
+
+
     }
+
 
 
     if(AZIONE=="NOME")
@@ -115,6 +144,8 @@ var logged      : String? = ""
     return null
 
 }
+
+
 
 
 

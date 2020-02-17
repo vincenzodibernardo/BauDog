@@ -1,22 +1,25 @@
 package com.example.baudog
 
 import android.content.Context
-import android.content.Intent
-import android.content.pm.PackageManager
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.navigation.Navigation
-
-import com.google.firebase.database.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.fragment_registration.*
 
 
-
 class Registration : Fragment() {
-
+    private val PREF_NAME = "BauDog"
+    private val PREF_USERNAME = "Username"
+    private val PREF_PASSWORD = "Password"
+    private lateinit var sharedPref: SharedPreferences
 
 
 
@@ -42,6 +45,10 @@ class Registration : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        sharedPref = activity!!.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+
+        leggiParametri()
+
 
 
 
@@ -57,6 +64,18 @@ class Registration : Fragment() {
             if(Control())
             {
                 Login(editText_Username.text.toString(), editText_Password.text.toString())
+
+
+                    val editor : SharedPreferences.Editor= sharedPref.edit()
+
+                    val username = editText_Username.text.toString()
+                    editor.putString(PREF_USERNAME, username)
+
+                    val password = editText_Password.text.toString()
+                    editor.putString(PREF_PASSWORD, password)
+
+                    editor.apply()    // Salva le modifiche
+
             }
 
         }
@@ -207,6 +226,7 @@ class Registration : Fragment() {
                                         ) == "Y"
                                     )
                                     {
+
                                         if (Passaggio("QUI") == "smarriti" || Passaggio("QUI") == "trovati")
                                             Navigation.findNavController(view!!).navigate(R.id.action_registration_to_trovatoFragment)
                                         else
@@ -241,6 +261,17 @@ class Registration : Fragment() {
 
 
     }
+
+    private fun leggiParametri()
+    {
+        val username = sharedPref.getString(PREF_USERNAME, "")
+        editText_Username.setText(username)
+
+        val password = sharedPref.getString(PREF_PASSWORD, "")
+        editText_Password.setText(password)
+    }
+
+
 
 
 
