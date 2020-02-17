@@ -92,7 +92,7 @@ class InfoCane : Fragment() {
         //handle item clicks
         if (id == R.id.Logout_Item)
         {
-            Logged("LOGOUT","","","","","","","","","")
+            Logged("LOGOUT","","","","","","","","","","")
             Toast.makeText(context, "LOGOUT", Toast.LENGTH_SHORT).show()
 
         }

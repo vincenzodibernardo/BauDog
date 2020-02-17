@@ -80,7 +80,7 @@ class ListTrovatoFragment : Fragment() {
                         CaneListTrovato?.add(cane!!)
                     }
 
-                    val adapter = CaneAdapter(context, CaneListTrovato!!)
+                    val adapter = CaneAdapter(context, CaneListTrovato!!,false)
                     mRecyclerView?.adapter = adapter
 
 
@@ -117,7 +117,7 @@ class ListTrovatoFragment : Fragment() {
         //handle item clicks
         if (id == R.id.Logout_Item)
         {
-            Logged("LOGOUT","","","","","","","","","")
+            Logged("LOGOUT","","","","","","","","","","")
 
 
         }
@@ -125,7 +125,7 @@ class ListTrovatoFragment : Fragment() {
         {
             //do your action here, im just showing toast
             Toast.makeText(context, "PROFILO", Toast.LENGTH_SHORT).show()
-            Navigation.findNavController(view!!).navigate(R.id.action_trovatoFragment_to_profiloFragment)
+            Navigation.findNavController(view!!).navigate(R.id.action_ListTrovatoFragment_to_profiloFragment)
 
         }
 

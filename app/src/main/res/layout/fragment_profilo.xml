@@ -12,8 +12,42 @@
         android:background="@drawable/gradient_background"
         tools:context=".ProfiloFragment">
 
+        <TextView
+            android:id="@+id/textView_ShowUsername"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/Null"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCellulare2" />
+
+        <TextView
+            android:id="@+id/textViewCellulare2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="Username :"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_ShowCellulare" />
+
         <RadioGroup
-            android:id="@+id/RadioGroup_Sesso"
+            android:id="@+id/RadioGroup_SessoProfilo"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="horizontal"
@@ -25,7 +59,7 @@
             app:layout_constraintVertical_bias="0.39">
 
             <RadioButton
-                android:id="@+id/radioButton_Maschio"
+                android:id="@+id/radioButton_MaschioProfilo"
                 android:layout_width="65dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -36,7 +70,7 @@
                 android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/radioButton_Femmina"
+                android:id="@+id/radioButton_FemminaProfilo"
                 android:layout_width="65dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -79,7 +113,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/arial_rounded_bold"
             android:text="Cognome :"
@@ -112,7 +146,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/arial_rounded_bold"
             android:text="Email :"
@@ -128,7 +162,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/arial_rounded_bold"
             android:text="Sesso :"
@@ -144,7 +178,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/arial_rounded_bold"
             android:text="Cellulare :"
@@ -258,8 +292,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
 
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/arial_rounded_bold"
             android:text="ID :"
@@ -268,7 +302,7 @@
             android:textStyle="bold|italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_ShowCellulare" />
+            app:layout_constraintTop_toBottomOf="@+id/textView_ShowUsername" />
 
         <TextView
             android:id="@+id/textView_ShowID"
@@ -330,10 +364,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_MieiCani" />
+            app:layout_constraintTop_toBottomOf="@+id/button_MieiCaniSmarriti" />
 
         <Button
-            android:id="@+id/button_MieiCani"
+            android:id="@+id/button_MieiCaniTrovati"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -341,10 +375,25 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/bottone_white"
             android:fontFamily="@font/arial_rounded_bold"
-            android:text="I MIEI CANI"
+            android:text="I MIEI CANI : TROVATI"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buttonANNULLA" />
+
+        <Button
+            android:id="@+id/button_MieiCaniSmarriti"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bottone_white"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="I MIEI CANI : SMARRITI"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_MieiCaniTrovati" />
 
         <EditText
             android:id="@+id/editText_NomeCrea"
@@ -423,12 +472,14 @@
 
         <Button
             android:id="@+id/buttonANNULLA"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bottone_white"
             android:text="@string/annulla"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintEnd_toStartOf="@+id/buttonSALVA"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -436,14 +487,32 @@
 
         <Button
             android:id="@+id/buttonSALVA"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bottone_white"
             android:text="SALVA"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintBaseline_toBaselineOf="@+id/buttonANNULLA"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/buttonANNULLA" />
+
+        <EditText
+            android:id="@+id/editText_UsernameCrea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:visibility="gone"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_ShowUsername"
+            app:layout_constraintEnd_toEndOf="@+id/textView_ShowUsername"
+            app:layout_constraintStart_toStartOf="@+id/textView_ShowUsername"
+            app:layout_constraintTop_toTopOf="@+id/textView_ShowUsername" />
 
 
     </android.support.constraint.ConstraintLayout>

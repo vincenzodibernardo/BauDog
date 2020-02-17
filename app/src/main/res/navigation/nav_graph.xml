@@ -73,6 +73,9 @@
         <action
             android:id="@+id/action_registration_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_registration_to_profiloFragment"
+            app:destination="@id/profiloFragment" />
     </fragment>
     <fragment
         android:id="@+id/infoCane"
@@ -102,6 +105,9 @@
         <action
             android:id="@+id/action_profiloFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_profiloFragment_to_mieiCaniFragment"
+            app:destination="@id/mieiCaniFragment" />
     </fragment>
     <fragment
         android:id="@+id/creaUserFragment"
@@ -113,5 +119,21 @@
         <action
             android:id="@+id/action_creaUserFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_creaUserFragment_to_profiloFragment"
+            app:destination="@id/profiloFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/mieiCaniFragment"
+        android:name="com.example.baudog.MieiCaniFragment"
+        android:label="fragment_miei_cani"
+        tools:layout="@layout/fragment_miei_cani" >
+        <action
+            android:id="@+id/action_mieiCaniFragment_to_infoMioCane"
+            app:destination="@id/infoMioCane" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoMioCane"
+        android:name="com.example.baudog.InfoMioCane"
+        android:label="InfoMioCane" />
 </navigation>

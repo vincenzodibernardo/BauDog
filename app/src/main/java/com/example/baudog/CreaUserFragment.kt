@@ -67,7 +67,11 @@ class CreaUserFragment : Fragment() {
         //BOTTONI CREA USER E ANNULLA
         button_CreaUser.setOnClickListener {
 
-           if (VerificaCampi()) {uploadImmagineProfilo()}
+           if (VerificaCampi())
+           {
+               uploadImmagineProfilo()
+               Navigation.findNavController(view).navigate(R.id.action_creaUserFragment_to_registration)
+           }
 
         }
         button_AnnullaUser.setOnClickListener {
@@ -154,7 +158,7 @@ class CreaUserFragment : Fragment() {
         val db_ID_Utente: String = ref.push().key.toString()
 
 
-        val user = User(db_NomeUtente,db_Cognome_Utente,db_Eta_Utente,db_Email_Utente,db_Sesso_Utente,db_Numero_Utente, db_Password_Utente, db_Username,db_ID_Utente)
+        val user = User(db_NomeUtente,db_Cognome_Utente,db_Eta_Utente,db_Email_Utente,db_Sesso_Utente,db_Numero_Utente, db_Password_Utente, db_Username,db_ID_Utente,db_ImageUrl_Utente)
 
 
 

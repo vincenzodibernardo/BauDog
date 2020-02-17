@@ -41,7 +41,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView_Trovato" />
 
          <RadioGroup
-                android:id="@+id/RadioGroup_Sesso"
+                android:id="@+id/RadioGroup_ChipCaneMod"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -85,7 +85,7 @@
             android:textColor="@color/endblue"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/RadioGroup_Sesso" />
+            app:layout_constraintTop_toBottomOf="@+id/RadioGroup_ChipCaneMod" />
 
         <EditText
             android:id="@+id/editText_Colore"

@@ -8,11 +8,7 @@ import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.navigation.Navigation
-import com.facebook.login.LoginManager
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_registration.*
 
 
 class HomeFragment : Fragment()
@@ -21,7 +17,6 @@ class HomeFragment : Fragment()
         super.onCreate(savedInstanceState)
         this.setHasOptionsMenu(true)
     }
-    private var GoogleSignInClient : GoogleSignInClient ? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,13 +31,13 @@ class HomeFragment : Fragment()
         super.onViewCreated(view, savedInstanceState)
 
         Bottone_Smarrimento.setOnClickListener {
+            Passaggio("smarriti")
             if (logged=="Y")
             {
-                Passaggio("smarriti")
+
                 Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_trovatoFragment)
             }
             else
-                Passaggio("smarriti")
                 Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_registration)
 
         }
@@ -50,7 +45,7 @@ class HomeFragment : Fragment()
 
         Bottone_Ritrovamento.setOnClickListener {
 
-            if (Logged("LOGGED", "", "", "", "", "", "", "", "", "") == "Y")
+            if (Logged("LOGGED", "", "", "", "", "", "", "", "", "","") == "Y")
             {
                 Passaggio("trovati")
                 Navigation.findNavController(view)
@@ -133,7 +128,7 @@ class HomeFragment : Fragment()
 
         if (id == R.id.Logout_Item)
         {
-            Logged("LOGOUT","","","","","","","","","")
+            Logged("LOGOUT","","","","","","","","","","")
 
         }
 

@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <android.support.constraint.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_background"
+        tools:context=".InfoCane">
+
+        <Button
+            android:id="@+id/buttonSalvaCaneMod"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottone_white"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="SALVA"
+            android:textStyle="bold|italic"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonModificaCane"
+            app:layout_constraintEnd_toEndOf="@+id/buttonModificaCane"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/buttonEliminaCane"
+            app:layout_constraintStart_toStartOf="@+id/buttonModificaCane"
+            app:layout_constraintTop_toBottomOf="@+id/buttonModificaCane"
+            app:layout_constraintTop_toTopOf="@+id/buttonModificaCane" />
+
+        <TextView
+            android:id="@+id/textViewMio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/chalkduster"
+            android:gravity="center"
+            android:text="@string/info_dog"
+            android:textColor="@color/endblue"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/UriImageMio"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            app:layout_constraintCircleRadius="30dp"
+            app:layout_constraintEnd_toEndOf="@+id/textViewMio"
+            app:layout_constraintStart_toStartOf="@+id/textViewMio"
+            app:layout_constraintTop_toBottomOf="@+id/textViewMio"
+            tools:src="@drawable/prova1" />
+
+        <TextView
+            android:id="@+id/textView_InfoNomeMio"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="Nome : "
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="italic|bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/UriImageMio" />
+
+        <TextView
+            android:id="@+id/textView_infoRazzaMio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/TextView_Razza"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="italic|bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_ViewNomeMio" />
+
+        <TextView
+            android:id="@+id/textView_InfoSessoMio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/TextView_sesso"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="italic|bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_ViewRazzaMio" />
+
+        <TextView
+            android:id="@+id/textView_InfoColoreMio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/TextView_colore"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="italic|bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_ViewSessoMio" />
+
+        <TextView
+            android:id="@+id/textView_InfoChipMio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/textView_chip"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="italic|bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_ColoreCollareCaneMod" />
+
+        <TextView
+            android:id="@+id/textView_InfoCollareMio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/TextView_Collare"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="italic|bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_ViewColoreMio" />
+
+        <TextView
+            android:id="@+id/textView_InfoInfoMio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/textView_InfoAggiuntive"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="italic|bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_ViewChipMio" />
+
+        <TextView
+            android:id="@+id/textView_ViewNomeMio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/Null"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="italic|bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView_InfoNomeMio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+        <TextView
+            android:id="@+id/textView_ViewRazzaMio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/Null"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="italic|bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView_infoRazzaMio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+        <TextView
+            android:id="@+id/textView_ViewSessoMio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/Null"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="italic|bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView_InfoSessoMio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+        <TextView
+            android:id="@+id/textView_ViewColoreMio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/Null"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="italic|bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView_InfoColoreMio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+        <TextView
+            android:id="@+id/textView_ViewCollareMio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/Null"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:textStyle="italic|bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView_InfoCollareMio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+        <TextView
+            android:id="@+id/textView_ViewInfoMio"
+            android:layout_width="0dp"
+            android:layout_height="298dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/back"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/Null"
+            android:textSize="18sp"
+            android:textStyle="italic|bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_InfoInfoMio" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="123dp" />
+
+        <TextView
+            android:id="@+id/textView_ViewChipMio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/Null"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView_InfoChipMio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+        <Button
+            android:id="@+id/buttonEliminaCane"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/bottone_white"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="ELIMINA"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonModificaCane"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_ViewInfoMio" />
+
+        <Button
+            android:id="@+id/buttonAnnullaCaneMod"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottone_white"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="@string/annulla"
+            android:textStyle="bold|italic"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonEliminaCane"
+            app:layout_constraintEnd_toEndOf="@+id/buttonEliminaCane"
+            app:layout_constraintStart_toStartOf="@+id/buttonEliminaCane"
+            app:layout_constraintTop_toTopOf="@+id/buttonEliminaCane" />
+
+        <Button
+            android:id="@+id/buttonModificaCane"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bottone_white"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:text="MODIFICA"
+            android:textStyle="bold|italic"
+            app:layout_constraintBaseline_toBaselineOf="@+id/buttonEliminaCane"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/buttonEliminaCane" />
+
+        <RadioGroup
+            android:id="@+id/RadioGroup_SessoCaneMod"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_ViewSessoMio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView_ViewSessoMio"
+            app:layout_constraintTop_toTopOf="@+id/textView_ViewSessoMio"
+            app:layout_constraintVertical_bias="0.39">
+
+            <RadioButton
+                android:id="@+id/radioButton_MaschioCaneMod"
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:checked="true"
+                android:fontFamily="@font/arial_rounded_bold"
+                android:text="@string/maschio"
+                android:textColor="@color/endblue"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton_FemminaCaneMod"
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/arial_rounded_bold"
+                android:text="@string/femmina"
+                android:textColor="@color/endblue"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+
+        <RadioGroup
+            android:id="@+id/RadioGroup_ChipCaneMod"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_ViewChipMio"
+            app:layout_constraintEnd_toEndOf="@+id/textView_ViewChipMio"
+            app:layout_constraintStart_toStartOf="@+id/textView_ViewChipMio"
+            app:layout_constraintTop_toTopOf="@+id/textView_ViewChipMio"
+            app:layout_constraintVertical_bias="0.39">
+
+            <RadioButton
+                android:id="@+id/radioButton_ChipPresenteCaneMod"
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:checked="true"
+                android:fontFamily="@font/arial_rounded_bold"
+                android:text="SI"
+                android:textColor="@color/endblue"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton_ChipAssenteCaneMod"
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/arial_rounded_bold"
+                android:text="NO"
+                android:textColor="@color/endblue"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/editText_NomeCaneMod"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:visibility="gone"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:textStyle="italic|bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_ViewNomeMio"
+            app:layout_constraintEnd_toEndOf="@+id/textView_ViewNomeMio"
+            app:layout_constraintStart_toStartOf="@+id/textView_ViewNomeMio"
+            app:layout_constraintTop_toTopOf="@+id/textView_ViewNomeMio" />
+
+        <EditText
+            android:id="@+id/editText_RazzaCaneMod"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:visibility="gone"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:textStyle="italic|bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_ViewRazzaMio"
+            app:layout_constraintEnd_toEndOf="@+id/textView_ViewRazzaMio"
+            app:layout_constraintStart_toStartOf="@+id/textView_ViewRazzaMio"
+            app:layout_constraintTop_toTopOf="@+id/textView_ViewRazzaMio" />
+
+        <RadioGroup
+            android:id="@+id/RadioGroup_CollareCaneMod"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_ViewCollareMio"
+            app:layout_constraintEnd_toEndOf="@+id/textView_ViewCollareMio"
+            app:layout_constraintStart_toStartOf="@+id/textView_ViewCollareMio"
+            app:layout_constraintTop_toTopOf="@+id/textView_ViewCollareMio"
+            app:layout_constraintVertical_bias="0.39">
+
+            <RadioButton
+                android:id="@+id/radioButton_CollarePresenteCaneMod"
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:checked="true"
+                android:fontFamily="@font/arial_rounded_bold"
+                android:text="SI"
+                android:textColor="@color/endblue"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton_CollareAssenteCaneMod"
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/arial_rounded_bold"
+                android:text="NO"
+                android:textColor="@color/endblue"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/editText_ColoreCaneMod"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:visibility="gone"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:textStyle="italic|bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_ViewColoreMio"
+            app:layout_constraintEnd_toEndOf="@+id/textView_ViewColoreMio"
+            app:layout_constraintStart_toStartOf="@+id/textView_ViewColoreMio"
+            app:layout_constraintTop_toTopOf="@+id/textView_ViewColoreMio" />
+
+        <EditText
+            android:id="@+id/editText_InfoCaneMod"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/back"
+            android:ems="10"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            android:textSize="24sp"
+            android:textStyle="italic|bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_ViewInfoMio"
+            app:layout_constraintEnd_toEndOf="@+id/textView_ViewInfoMio"
+            app:layout_constraintStart_toStartOf="@+id/textView_ViewInfoMio"
+            app:layout_constraintTop_toTopOf="@+id/textView_ViewInfoMio" />
+
+        <EditText
+            android:id="@+id/editText_ColoreCollareCaneMod"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:hint="@string/hint_ColoreCollare"
+            android:inputType="textPersonName"
+            android:textColor="@color/endblue"
+            android:textSize="24sp"
+            android:fontFamily="@font/arial_rounded_bold"
+            android:textStyle="italic|bold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/textView_ViewCollareMio" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

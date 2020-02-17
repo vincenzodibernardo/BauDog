@@ -12,7 +12,7 @@ import android.widget.TextView
 import androidx.navigation.Navigation
 import com.squareup.picasso.Picasso
 
-class CaneAdapter(val context: Context?, val CaneList: ArrayList<Cane>) : RecyclerView.Adapter<CaneAdapter.Holder>()
+class CaneAdapter(val context: Context?, val CaneList: ArrayList<Cane>, val myDog : Boolean) : RecyclerView.Adapter<CaneAdapter.Holder>()
 {
 
     override fun onBindViewHolder(holder: Holder, position: Int)
@@ -27,7 +27,17 @@ class CaneAdapter(val context: Context?, val CaneList: ArrayList<Cane>) : Recycl
             val b = Bundle()
             b.putParcelable("cane", cane)     //TODO: Il nome dell'ogggetto andrebbe inserito in un solo punto!!
 
-            Navigation.findNavController(it).navigate(R.id.action_ListTrovatoFragment_to_infoCane, b)
+            if (myDog)
+            {
+                Navigation.findNavController(it).navigate(R.id.action_mieiCaniFragment_to_infoMioCane, b)
+            }
+
+
+            else
+            {
+                Navigation.findNavController(it).navigate(R.id.action_ListTrovatoFragment_to_infoCane, b)
+            }
+
 
 
         }

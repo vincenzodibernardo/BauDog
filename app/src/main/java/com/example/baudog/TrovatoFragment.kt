@@ -265,9 +265,11 @@ class TrovatoFragment : Fragment() {
 
         val db_caneID: String = ref.push().key.toString()
 
+        val db_caneID_end = Logged("ID","","","","","","","","","","")+ "@" + db_caneID
+
 
         val cane = Cane(
-            db_caneID,
+            db_caneID_end,
             db_Razza,
             db_Sesso,
             db_Colore,
@@ -281,7 +283,7 @@ class TrovatoFragment : Fragment() {
         )
 
 
-        ref.child(db_caneID).setValue(cane)
+        ref.child(db_caneID_end).setValue(cane)
             .addOnCompleteListener {
 
                 Toast.makeText(activity, "SALVATO CON SUCCESSO", Toast.LENGTH_SHORT).show()
@@ -308,7 +310,7 @@ class TrovatoFragment : Fragment() {
         //handle item clicks
         if (id == R.id.Logout_Item)
         {
-           Logged("LOGOUT","","","","","","","","","")
+           Logged("LOGOUT","","","","","","","","","","")
             Navigation.findNavController(view!!).navigate(R.id.action_trovatoFragment_to_registration)
 
         }
