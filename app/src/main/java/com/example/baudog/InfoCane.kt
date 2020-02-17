@@ -16,10 +16,14 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_info_cane.*
 
 
+
+
+
 class InfoCane : Fragment() {
 
     var ID_DOG : String =""
     var NumeroCellulare =""
+    var Email           =""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -128,6 +132,40 @@ class InfoCane : Fragment() {
 
             }
 
+        buttonEmail.setOnClickListener {
+            val caneIdControl: List<String> = ID_DOG.split("@")
+            val cancan = caneIdControl[0]
+            var firedatabase  = FirebaseDatabase.getInstance()
+            var ref = FirebaseDatabase.getInstance().getReference("User/")
+
+            ref.addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+                override fun onDataChange(p0: DataSnapshot)
+                {
+                    for (h in p0.children)
+                    {
+                        val user: User? = h.getValue(User::class.java)
+                        val userId = user!!.ID
+                        Log.d("USERID", "USER : $userId")
+                        Log.d("USERID", "CANE : $cancan")
+
+                        if (cancan == userId)
+                        {
+                            Email= user.email
+                            sendEmail()
+
+
+                        }
+                    }
+
+
+                }
+            })
+        }
+
     }
 
 
@@ -212,6 +250,20 @@ class InfoCane : Fragment() {
         startActivity(intent)
 
 
+    }
+
+    private fun sendEmail()
+    {
+
+
+        val intent = Intent(Intent.ACTION_VIEW)
+        val data = Uri.parse(
+            "mailto:"
+                    + Email
+                    + "?subject=" + "Questo è il mio cane ?" + "&body=" + ""
+        )
+        intent.data = data
+        startActivity(intent)
     }
 
 }
