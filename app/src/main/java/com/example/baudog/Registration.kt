@@ -171,7 +171,8 @@ class Registration : Fragment() {
             override fun onDataChange(p0: DataSnapshot) {
                 if (view != null) {
                     if (p0.exists()) {
-                        for (h in p0.children) {
+                        for (h in p0.children)
+                        {
                             val user: User? = h.getValue(User::class.java)
                             if (username == user?.username) {
                                 Log.d("USER", "USER TROVATO: $username")

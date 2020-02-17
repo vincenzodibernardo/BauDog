@@ -26,11 +26,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            app:layout_constraintCircleRadius="30dp"
             android:id="@+id/UriImage"
             android:layout_width="0dp"
             android:layout_height="250dp"
             android:layout_marginTop="8dp"
+            app:layout_constraintCircleRadius="30dp"
             app:layout_constraintEnd_toEndOf="@+id/textView_ViewNome"
             app:layout_constraintStart_toStartOf="@+id/textView_InfoNome"
             app:layout_constraintTop_toBottomOf="@+id/textView4"
@@ -248,24 +248,30 @@
 
         <Button
             android:id="@+id/buttonChiama"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Button"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bottone_white"
+            android:text="CHIAMA"
+            app:layout_constraintBaseline_toBaselineOf="@+id/buttonEmail"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_ViewInfo" />
+            app:layout_constraintStart_toEndOf="@+id/buttonEmail" />
 
         <Button
             android:id="@+id/buttonEmail"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="32dp"
-            android:text="Button"
+            android:background="@drawable/bottone_white"
+            android:text="EMAIL"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonChiama"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonEliminaCane" />
+            app:layout_constraintTop_toBottomOf="@+id/textView_ViewInfo" />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
